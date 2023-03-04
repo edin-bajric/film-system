@@ -2,4 +2,4 @@
 ## Browse movies
 ## Learn about movies
 ## Interact with movies
-## Customize your profile
+## Build your profile
