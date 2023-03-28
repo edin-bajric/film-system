@@ -29,6 +29,4 @@ Flight::route('DELETE /movie/@id', function($id){
 
 
 Flight::start();
-
-
 ?>
