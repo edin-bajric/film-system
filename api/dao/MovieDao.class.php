@@ -18,8 +18,8 @@ class MovieDao {
     }
 
     function add($movie) {
-        $query = $this -> connection -> prepare("INSERT INTO movie (title, year, length, description, writer, actor, image) 
-        VALUES (:title, :year, :length, :description, :writer, :actor, :image)");
+        $query = $this -> connection -> prepare("INSERT INTO movie (title, year, length, description, writer, actor) 
+        VALUES (:title, :year, :length, :description, :writer, :actor)");
         $query -> execute($movie);
     }
 
@@ -29,7 +29,7 @@ class MovieDao {
         return $query -> fetchAll(PDO::FETCH_ASSOC);
     }
 
-    function update($attribute, $value, $id) {
+    function update($id, $attribute, $value) {
         $query = $this -> connection -> prepare("UPDATE movie SET $attribute = :value WHERE id = :id");
         $query -> bindParam(':value', $value);
         $query -> bindParam(':id', $id);
