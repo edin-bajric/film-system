@@ -1,7 +1,7 @@
 <?php
 
 require_once 'BaseService.php';
-require_once __DIR__.'/../dao/MovieDao.class.php';
+require_once dirname(__FILE__).'/../dao/MovieDao.class.php';
 
 class MovieService extends BaseService{
 
