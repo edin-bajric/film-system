@@ -1,4 +1,7 @@
 <?php
+
+require_once dirname(__FILE__).'/../Config.class.php';
+
 class BaseDao {
     private $connection;
     private $table;
@@ -6,10 +9,10 @@ class BaseDao {
     public function __construct($table) {
         try {
             $this -> table = $table;
-            $hostname = "127.0.0.1:3307";
-            $database = "filmsystem";
-            $username = "root";
-            $password = "edinbajric";
+            $hostname = Config::DB_HOST();
+            $database = Config::DB_SCHEMA();
+            $username = Config::DB_USERNAME();
+            $password = Config::DB_PASSWORD();
 
             $this -> connection = new PDO("mysql:host=$hostname;dbname=$database;", $username, $password);
             $this -> connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
