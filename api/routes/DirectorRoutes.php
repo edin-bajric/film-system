@@ -1,8 +1,4 @@
 <?php
-Flight::route('GET /director/hello', function(){
-    echo "hello";
-});
-
 Flight::route('POST /director', function(){
     $data = Flight::request()->data->getData();
     Flight::json(Flight::directorService()->add($data));
