@@ -9,11 +9,12 @@ class BaseDao {
         try {
             $this -> table = $table;
             $hostname = Config::DB_HOST();
+            $port = Config::DB_PORT();
             $database = Config::DB_SCHEMA();
             $username = Config::DB_USERNAME();
             $password = Config::DB_PASSWORD();
 
-            $this -> connection = new PDO("mysql:host=$hostname;dbname=$database;", $username, $password);
+            $this -> connection = new PDO("mysql:host=$hostname:$port;dbname=$database;", $username, $password);
             $this -> connection -> setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         }
         catch (PDOException $e) {
