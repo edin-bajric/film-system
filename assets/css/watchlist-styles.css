@@ -1,0 +1,326 @@
+ .top-pic {
+    object-fit: cover;
+    width: 100%;
+    height: 550px;
+    opacity: 70%;
+  }
+  
+  .top-part {
+    height: 550px;
+    position: relative;
+  }
+  
+  .slogan {
+    width: 100%;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 96px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .all-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .all {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 32px;
+    width: 240px;
+    position: relative;
+    color: white;
+    bottom: 175px;
+    left: 32px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .sort {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 32px;
+    position: relative;
+    color: white;
+    bottom: 175px;
+    right: 42px;
+  }
+  
+  .sort::after {
+    content: " Latest";
+    color: #77c3ec;
+    cursor: pointer;
+  }
+  
+  .sort:hover::after {
+    color: white;
+  }
+  
+  .sort.clicker::after {
+    content: " A-z";
+  }
+  
+  .grid {
+    display: grid;
+    grid-gap: 32px;
+  }
+  
+  .large-card {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    width: 95.5%;
+    height: 500px;
+    position: relative;
+    top: -100px;
+    padding: 16px;
+    margin-left: 32px;
+    border-radius: 8px;
+    background-color: white;
+    transition: 0.3s;
+  }
+  
+  .movie-image {
+    width: 30%;
+    height: 100%;
+    padding: 16px;
+  }
+  
+  .movie-image:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
+  
+  .movie-image-p {
+    width: 46.5%;
+    height: 100%;
+    padding: 16px;
+  }
+  
+  .movie-image-p:hover {
+    opacity: 80%;
+    cursor: pointer;
+  }
+  
+  .movie-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .movie-image-p img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 16px;
+    padding-right: 16px;
+    margin-bottom: 12px;
+  }
+  
+  .title {
+    font-family: "Oswald";
+    font-weight: 600;
+    font-size: 48px;
+  }
+  
+  .info p {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 24px;
+  }
+  
+  .rating {
+    color: #77c3ec;
+    font-variation-settings: "FILL" 1, "wght" 1000;
+    cursor: default;
+  }
+  
+  .for-button {
+    display: flex;
+    justify-content: center;
+    padding: 16px;
+  }
+  
+  .add-watchlist {
+    width: 140px;
+    height: 42px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 24px;
+    border: none;
+    background-color: #77c3ec;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .add-watchlist span::before {
+    content: "check";
+  }
+  
+  .add-watchlist:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .add-watchlist:active {
+    background-color: #bdbdbd;
+  }
+  
+  .add-watchlist.clicked {
+    background-color: white;
+  }
+  
+  .add-watchlist.clicked span::before {
+    content: "add";
+  }
+  
+  ::-webkit-scrollbar {
+    width: 1em;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #dcdcdc;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #77c3ec;
+    border: 0.2em solid #dcdcdc;
+    border-radius: 100vw;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1779b2;
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background: #146190;
+  }
+  
+  .get-top {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    top: 32px;
+  }
+  
+  .get-started {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    width: 325px;
+    height: 40px;
+    position: relative;
+    left: 32px;
+    border-radius: 50px;
+    color: #1e1e1e;
+    background: #77c3ec;
+    transition: all 0.3s ease 0s;
+    outline: none;
+    border: none;
+  }
+  
+  .get-started:hover {
+    background-color: #1779b2;
+  }
+  
+  .get-started:active {
+    background-color: #146190;
+  }
+  
+  .back-to-top {
+    padding: 32px;
+  }
+  
+  .back-to-top a {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .back-to-top a:hover {
+    color: #dcdcdc;
+  }
+  
+  .back-to-top:active {
+    color: #bdbdbd;
+  }
+
+  @media (max-width: 991px) {
+    .grid {
+      margin-right: 48px;
+    }
+    .large-card {
+      flex-direction: column;
+      height: 100%;
+    }
+    .movie-image {
+      width: 100%;
+      height: 300px;
+      padding: 0px;
+    }
+    .movie-image-p {
+      width: 100%;
+      height: 300px;
+      padding: 0px;
+    }
+    .title {
+      font-family: "Oswald";
+      font-weight: 600;
+      font-size: 24px;
+    }
+  
+    .info {
+      padding: 0px;
+    }
+  
+    .info p {
+      font-family: "Oswald";
+      font-weight: 400;
+      font-size: 16px;
+    }
+    .slogan {
+      font-size: 48px;
+    }
+    .all,
+    .sort {
+      font-size: 24px;
+    }
+    .sort:hover::after {
+      color: #77c3ec;
+    }
+    .rating {
+      font-variation-settings: "FILL" 1, "wght" 400;
+    }
+    .get-top {
+      flex-direction: column;
+    }
+    .get-started {
+      left: 0;
+    }
+  }
+  

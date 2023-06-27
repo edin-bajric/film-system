@@ -1,9 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-
     <link
       rel="stylesheet"
       type="text/css"
@@ -18,13 +15,13 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/spapp.css" />
     <link rel="stylesheet" href="assets/css/index-styles.css" />
   </head>
-
   <body>
-    <nav>
+    <nav role="navigation">
       <div class="container">
-        <img class="logo" src="assets/img/Logo.png" alt="logo" />
+        <a href="#homepage"><img class="logo" src="assets/img/Logo.png" alt="logo" /></a>
         <form class="search">
           <input type="text" placeholder="Search movies or directors" />
           <button type="submit">
@@ -32,12 +29,12 @@
           </button>
         </form>
         <div class="menu">
-          <a href="#" class="movies-page">Movies</a>
-          <a href="#" class="directors-page">Directors</a>
-          <a href="#" class="watchlist-page">Watchlist</a>
-          <a href="#" class="favorites-movies-page">Favorites</a>
-          <a href="#" class="register-page">Register</a>
-          <a href="#" class="login-page">Sign in</a>
+          <a href="#movies-page" class="movies-page">Movies</a>
+          <a href="#directors-page" class="directors-page">Directors</a>
+          <a href="#watchlist-page" class="watchlist-page">Watchlist</a>
+          <a href="#favorites-movies-page" class="favorites-movies-page">Favorites</a>
+          <a href="#register-page" class="register-page">Register</a>
+          <a href="#login-page" class="login-page">Sign in</a>
         </div>
 
         <button class="hamburger">
@@ -60,25 +57,41 @@
       </form>
     </div>
 
+    <main id="spapp" role="main">
+      <section id="movies-page"></section>
+      <section id="directors-page"></section>
+      <section id="watchlist-page"></section>
+      <section id="favorites-movies-page"></section>
+      <section id="favorites-directors-page"></section>
+      <section id="register-page"></section>
+      <section id="login-page"></section>
+      <section id="error_404"><h1>Page not found</h1></section>
+      <section id="homepage" data-load="homepage.html" ></section>
+    </main>
+
     <footer>
-        <div class="footer-container">
-          <img src="assets/img/Text.png" class="logo-text" />
-          <img src="assets/img/Footer Logo.png" class="footer-logo" />
-          <div class="icons">
-            <a href="https://www.facebook.com/edin.e.bajric/" target="_blank"
-              ><img src="assets/img/facebook-fill.png" class="facebook"
-            /></a>
-  
-            <a href="https://www.instagram.com/pacdoe/" target="_blank">
-              <img src="assets/img/instagram-fill.png" class="instagram" /></a
-            ><a
-              href="https://www.linkedin.com/in/edin-bajri%C4%87-1a3493269/"
-              target="_blank"
-              ><img src="assets/img/linkedin-box-fill.png" class="linkedin"
-            /></a>
-          </div>
+      <div class="footer-container">
+        <img src="assets/img/Text.png" class="logo-text" />
+        <img src="assets/img/Footer Logo.png" class="footer-logo" />
+        <div class="icons">
+          <a href="https://www.facebook.com/edin.e.bajric/" target="_blank"
+            ><img src="assets/img/facebook-fill.png" class="facebook"
+          /></a>
+
+          <a href="https://www.instagram.com/pacdoe/" target="_blank">
+            <img src="assets/img/instagram-fill.png" class="instagram" /></a
+          ><a
+            href="https://www.linkedin.com/in/edin-bajri%C4%87-1a3493269/"
+            target="_blank"
+            ><img src="assets/img/linkedin-box-fill.png" class="linkedin"
+          /></a>
         </div>
-      </footer>
+      </div>
+    </footer>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
     <script src="assets/js/index.js"></script>
+    <script src="assets/js/jquery.spapp.js"></script>
+    <script src="assets/js/custom.js"></script>
   </body>
 </html>
