@@ -1,0 +1,616 @@
+  .top-info {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 32px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top: 100px;
+    padding-left: 32px;
+    padding-right: 32px;
+    z-index: 97;
+  }
+  
+  .rating {
+    color: #77c3ec;
+    font-variation-settings: "FILL" 1, "wght" 1000;
+    cursor: default;
+  }
+  
+  .add-rating {
+    width: 120px;
+    height: 42px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 24px;
+    border: none;
+    background-color: white;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .add-rating:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .add-rating:active {
+    background-color: #bdbdbd;
+  }
+  
+  .rate {
+    color: #1e1e1e;
+    font-variation-settings: "FILL" 1, "wght" 1000;
+  }
+  
+  .top-pic {
+    object-fit: cover;
+    width: 100%;
+    height: 550px;
+    opacity: 70%;
+  }
+  
+  .top-part {
+    height: 550px;
+    position: relative;
+  }
+  
+  .slogan {
+    width: 100%;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 96px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .title-buttons-mobile {
+    width: 100%;
+    display: none;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 32px;
+    position: relative;
+    top: -170px;
+  }
+  
+  .for-trailer-mobile,
+  .favorite-mobile,
+  .watchlist-mobile {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .favorite-mobile span::before {
+    content: "favorite";
+  }
+  
+  .favorite-mobile:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .favorite-mobile:active {
+    background-color: #bdbdbd;
+  }
+  
+  .favorite-mobile.pressed {
+    background-color: #77c3ec;
+  }
+  
+  .favorite-mobile.pressed span::before {
+    content: "favorite";
+    font-variation-settings: "FILL" 1;
+  }
+  
+  .watchlist-mobile span::before {
+    content: "add";
+  }
+  
+  .watchlist-mobile:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .watchlist-mobile:active {
+    background-color: #bdbdbd;
+  }
+  
+  .watchlist-mobile.pressed {
+    background-color: #77c3ec;
+  }
+  
+  .watchlist-mobile.pressed span::before {
+    content: "check";
+  }
+  
+  .play-trailer {
+    width: 140px;
+    height: 42px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 24px;
+    border: none;
+    background-color: white;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .play-trailer:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .play-trailer:active {
+    background-color: #bdbdbd;
+  }
+  
+  .youtube {
+    text-decoration: none;
+  }
+  
+  .title-buttons {
+    position: relative;
+    top: -116px;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 32px;
+    padding-left: 32px;
+    padding-bottom: 32px;
+  }
+  
+  .favorite-watchlist {
+    width: 20%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .add-favorites {
+    width: 140px;
+    height: 42px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 24px;
+    border: none;
+    background-color: white;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .add-favorites span::before {
+    content: "favorite";
+  }
+  
+  .add-favorites:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .add-favorites:active {
+    background-color: #bdbdbd;
+  }
+  
+  .add-favorites.clicked {
+    background-color: #77c3ec;
+  }
+  
+  .add-favorites.clicked span::before {
+    content: "favorite";
+    font-variation-settings: "FILL" 1;
+  }
+  
+  .add-watchlist {
+    width: 140px;
+    height: 42px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 24px;
+    border: none;
+    background-color: white;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .add-watchlist span::before {
+    content: "add";
+  }
+  
+  .add-watchlist:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .add-watchlist:active {
+    background-color: #bdbdbd;
+  }
+  
+  .add-watchlist.clicked {
+    background-color: #77c3ec;
+  }
+  
+  .add-watchlist.clicked span::before {
+    content: "check";
+  }
+  
+  .all-info {
+    position: relative;
+    top: -100px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 24px;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 32px;
+  }
+  
+  .genre {
+    color: #77c3ec;
+  }
+  
+  .directors::before {
+    content: "Directors: ";
+    color: #77c3ec;
+  }
+  
+  .writers::before {
+    content: "Writers: ";
+    color: #77c3ec;
+  }
+  
+  .stars::before {
+    content: "Stars: ";
+    color: #77c3ec;
+  }
+  
+  .desc {
+    width: 25%;
+  }
+  
+  .photos {
+    position: relative;
+    top: -64px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 40px;
+    color: white;
+    padding: 32px;
+  }
+  
+  .all-photos {
+    position: relative;
+    top: -60px;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .first-col,
+  .second-col {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .all-photos img {
+    width: 100%;
+    height: 100%;
+    padding: 32px;
+    border-radius: 40px;
+  }
+  
+  .comment-sort {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .sort {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 32px;
+    position: relative;
+    color: white;
+    right: 32px;
+  }
+  
+  .sort::after {
+    content: " Top comments";
+    color: #77c3ec;
+    cursor: pointer;
+  }
+  
+  .sort:hover::after {
+    color: white;
+  }
+  
+  .sort.clicker::after {
+    content: " Newest first";
+  }
+  
+  .comments {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 40px;
+    color: white;
+    padding: 32px;
+    position: relative;
+  }
+  
+  .all-comments {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 24px;
+    color: #1e1e1e;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .first-comment,
+  .second-comment {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    padding: 16px;
+    margin: 32px;
+    border-radius: 8px;
+  }
+  
+  .comment-info {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-bottom: 32px;
+  }
+  
+  .comment-by-e::after {
+    content: " Edin Bajrić";
+    color: #77c3ec;
+  }
+  
+  .comment-by-i::after {
+    content: " Ivan Ivanić";
+    color: #77c3ec;
+  }
+  
+  .account {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    margin-right: 16px;
+  }
+  
+  .first-comment .comment-info .account {
+    background-color: #77c3ec;
+  }
+  
+  .second-comment .comment-info .account {
+    background-color: #146190;
+  }
+  
+  .user-rating {
+    margin-left: auto;
+  }
+  
+  .add-comment {
+    width: 140px;
+    height: 42px;
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 50px;
+    padding: 24px;
+    border: none;
+    background-color: white;
+    color: #1e1e1e;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-left: 32px;
+  }
+  
+  .add-comment:hover {
+    background-color: #dcdcdc;
+  }
+  
+  .add-comment:active {
+    background-color: #bdbdbd;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 1em;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #dcdcdc;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #77c3ec;
+    border: 0.2em solid #dcdcdc;
+    border-radius: 100vw;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #1779b2;
+  }
+  
+  ::-webkit-scrollbar-thumb:active {
+    background: #146190;
+  }
+  
+  .get-top {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    top: 32px;
+  }
+  
+  .get-started {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 16px;
+    cursor: pointer;
+    width: 325px;
+    height: 40px;
+    position: relative;
+    left: 32px;
+    border-radius: 50px;
+    color: #1e1e1e;
+    background: #77c3ec;
+    transition: all 0.3s ease 0s;
+    outline: none;
+    border: none;
+  }
+  
+  .get-started:hover {
+    background-color: #1779b2;
+  }
+  
+  .get-started:active {
+    background-color: #146190;
+  }
+  
+  .back-to-top {
+    padding: 32px;
+  }
+  
+  .back-to-top a {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .back-to-top a:hover {
+    color: #dcdcdc;
+  }
+  
+  .back-to-top:active {
+    color: #bdbdbd;
+  }
+  
+  @media (max-width: 991px) {
+    .top-info {
+      font-size: 24px;
+      display: list-item;
+      top: 100px;
+    }
+    .top-pic {
+      position: relative;
+      top: -100px;
+    }
+    .slogan {
+      font-size: 48px;
+    }
+    .title-buttons-mobile {
+      display: flex;
+    }
+    .title-buttons {
+      display: none;
+      flex-direction: column;
+      top: -90px;
+      width: 100%;
+    }
+    .favorite-watchlist {
+      flex-direction: column;
+      margin-top: 16px;
+    }
+    .add-watchlist {
+      margin-top: 16px;
+    }
+    .all-info {
+      flex-direction: column;
+      top: -180px;
+    }
+    .desc {
+      margin-top: 16px;
+      width: 100%;
+    }
+    .photos {
+      top: -180px;
+    }
+    .all-photos {
+      padding: 32px;
+      top: -180px;
+    }
+    .all-photos img {
+      padding: 0px;
+      border-radius: 0px;
+    }
+    .comment-sort {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+    }
+    .sort {
+      font-size: 24px;
+      right: 0px;
+      padding-left: 32px;
+      top: -180px;
+    }
+    .sort:hover::after {
+      color: #77c3ec;
+    }
+    .comments {
+      font-size: 24px;
+      top: -180px;
+    }
+    .all-comments {
+      position: relative;
+      font-size: 20px;
+      top: -180px;
+    }
+    .comment-info {
+      flex-direction: column;
+    }
+    .add-comment {
+      position: relative;
+      top: -180px;
+    }
+    .get-top {
+      flex-direction: column;
+    }
+    .get-started {
+      left: 0;
+    }
+  }
+  
