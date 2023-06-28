@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Oswald:300,400,600"
+      media="screen"
+    />
+    <title>Sign up - Silver Screen Society</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/register-styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+  </head>
+
+  <body>
+    <div class="background-img">
+      <img src="assets/img/register.jpg" />
+    </div>
+    <div class="container">
+      <h2 class="title">Join Silver Screen Society</h2>
+      <span
+        onclick="history.back()"
+        class="material-symbols-outlined close-button-register"
+        >close</span
+      >
+
+      <form action="#" class="registration" name="registration">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="email"
+          name="email"
+          id="email"
+          placeholder="Enter your new email"
+        />
+
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="username"
+          name="username"
+          id="username"
+          placeholder="Enter your new username"
+        />
+
+        <label for="new-password">New Password</label>
+        <input
+          type="password"
+          class="new-password"
+          name="npassword"
+          id="npassword"
+          placeholder="Enter your new password"
+        />
+
+        <label for="re-password">Re-enter Password</label>
+        <input
+          type="password"
+          class="re-password"
+          name="rpassword"
+          id="rpassword"
+          placeholder="Re-enter your new password"
+        />
+
+        <button type="submit" class="sign-up">Sign up</button>
+      </form>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="../assets/js/index.js"></script>
+    <script>
+      $(function () {
+        $("form[name='registration']").validate({
+          rules: {
+            username: "required",
+            email: {
+              required: true,
+              email: true,
+            },
+            npassword: {
+              required: true,
+              minlength: 8,
+            },
+            rpassword: {
+              required: true,
+              minlength: 8,
+            },
+          },
+          messages: {
+            username: "Please enter your username",
+            npassword: {
+              required: "Please enter your new password",
+              minlength: "Your password must be at least 8 characters long",
+            },
+            rpassword: {
+              required: "Please re-enter your password",
+              minlength: "Your password must be at least 8 characters long",
+            },
+            email: "Please enter a valid email address",
+          },
+
+          submitHandler: function (form) {
+            window.location.href = "../index.html";
+          },
+        });
+      });
+    </script>
+  </body>
+</html>

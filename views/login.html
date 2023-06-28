@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://fonts.googleapis.com/css?family=Oswald:300,400,600"
+      media="screen"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+    <title>Sign in - Silver Screen Society</title>
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.png" />
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/css/login-styles.css" />
+  </head>
+
+  <body>
+    <div class="background-img">
+      <img src="../assets/img/home-page-pic.jpg" />
+    </div>
+    <div class="login-container">
+      <h2 class="title">Enter your credentials</h2>
+      <span
+        onclick="history.back()"
+        class="material-symbols-outlined close-button-login"
+        >close</span
+      >
+
+      <form action="#" class="login" name="login">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="email"
+          name="email"
+          id="email"
+          placeholder="Enter your email"
+        />
+
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="password"
+          name="password"
+          id="password"
+          placeholder="Enter your password"
+        />
+
+        <button type="submit" class="sign-in">Sign in</button>
+
+        <a href="#" class="forgot-password">Forgot password?</a>
+        <button
+          type="button"
+          class="sign-up"
+          onclick="window.location.href='register.html'"
+        >
+          Create an account
+        </button>
+      </form>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="../assets/js/index.js"></script>
+    <script>
+      $(function () {
+        $("form[name='login']").validate({
+          rules: {
+            email: {
+              required: true,
+              email: true,
+            },
+            password: {
+              required: true,
+              minlength: 8,
+            },
+          },
+          messages: {
+            password: {
+              required: "Please provide a password",
+              minlength: "Your password must be at least 8 characters long",
+            },
+            email: "Please enter a valid email address",
+          },
+
+          submitHandler: function (form) {
+            window.location.href = "../index.html";
+          },
+        });
+      });
+    </script>
+  </body>
+</html>
