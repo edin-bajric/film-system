@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    
 
     <link
       rel="stylesheet"
@@ -33,42 +32,22 @@
       <h1 class="slogan">Directors</h1>
       <h2 class="most-popular">Most popular</h2>
     </div>
-    <div class="director-side-scroll-container">
-      <div class="card">
-        <img src="assets/img/kurbrick.jpg" class="director-image kubrick" />
-        <div class="container-box">
-          <h2 class="director-name">Stanley Kubrick</h2>
-          <button type="button" class="add-favorites">
-            <span class="material-symbols-outlined"> </span> Favorite
-          </button>
-        </div>
-      </div>
-      
+    <div class="director-side-scroll-container" id="director-cards-container">
+        
     </div>
     <h2 class="all">All</h2>
 
-    <div class="grid">
-      <div class="col">
-        <div class="card">
-          <img
-            src="assets/img/kurbrick.jpg"
-            class="director-image kubrick"
-          />
-          <div class="container-box">
-            <h2 class="director-name">Stanley Kubrick</h2>
-            <button type="button" class="add-favorites">
-              <span class="material-symbols-outlined"> </span> Favorite
-            </button>
-          </div>
-        </div>
-      </div>
+    <div class="grid" id="director-grid-cards-container">
+      
     </div>
 
     <div class="get-top">
       <button class="get-started" type="button">Get Started</button>
       <span class="back-to-top"><a href="#">Back to Top</a></span>
     </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="assets/js/load-movies.js"></script>
   </body>
 </html>
-<script src="assets/js/index.js"></script>
+
