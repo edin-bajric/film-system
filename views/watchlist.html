@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    
 
     <link
       rel="stylesheet"
@@ -28,43 +27,19 @@
       <img class="top-pic" src="assets/img/watchlist.jpg" alt="top-pic" />
       <h1 class="slogan">Watchlist</h1>
       <div class="all-sort">
-        <h2 class="all">All</h2>
+        <h2 class="all-banner">All</h2>
         <h2 class="sort">Sort By:</h2>
       </div>
     </div>
-    <div class="grid">
-      <div class="large-card">
-        <div class="movie-image mario">
-          <img src="assets/img/mario.jpg" />
-        </div>
-        <div class="info">
-          <h1 class="title">The Super Mario Bros. Movie</h1>
-          <p>2023</p>
-          <p>1h 32m</p>
-          <p>Animation, Adventure, Comedy</p>
-          <p>
-            7.3 <span class="material-symbols-outlined rating"> star </span>
-          </p>
-          <p>Aaron Horvath, Michael Jelenic, Pierre Leduc</p>
-          <p>Matthew Fogel</p>
-          <p>Chris Pratt, Anya Taylor-Joy, Charlie Day</p>
-          <p>
-            The story of The Super Mario Bros. and their many friends on their
-            journey through the Mushroom Kingdom
-          </p>
-        </div>
-        <div class="for-button">
-          <button type="button" class="add-watchlist">
-            <span class="material-symbols-outlined"> </span> Watchlist
-          </button>
-        </div>
-      </div>  
+    <div class="grid" id="movie-grid-large-cards-container">
     </div>
     <div class="get-top">
       <button class="get-started" type="button">Get Started</button>
       <span class="back-to-top"><a href="#">Back to Top</a></span>
     </div>
-    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="assets/js/load-data.js"></script>  
   </body>
 </html>
 

@@ -2,8 +2,8 @@
 require_once dirname(__FILE__).'/../Config.class.php';
 
 class BaseDao {
-    private $connection;
-    private $table;
+    protected $connection;
+    protected $table;
 
     public function __construct($table) {
         try {

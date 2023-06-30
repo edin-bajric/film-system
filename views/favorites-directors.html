@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    
 
     <link
       rel="stylesheet"
@@ -26,20 +25,7 @@
   </head>
 
   <body>
-    <div class="mobile-menu">
-      <a href="#" class="movies-page-mobile">Movies</a>
-      <a href="#" class="directors-page-mobile">Directors</a>
-      <a href="#" class="watchlist-page-mobile">Watchlist</a>
-      <a href="#" class="favorites-movies-page-mobile">Favorites</a>
-      <a href="#" class="register-page-mobile">Register</a>
-      <a href="#" class="login-page-mobile">Sign in</a>
-      <form class="mobile-search">
-        <input type="text" placeholder="Search movies or directors" />
-        <button type="submit">
-          <span class="material-symbols-outlined"> search </span>
-        </button>
-      </form>
-    </div>
+    
     <div class="top-part">
       <img class="top-pic" src="assets/img/fav.jpg" alt="top-pic" />
       <h1 class="slogan">Favorites</h1>
@@ -52,38 +38,16 @@
         <h2 class="all-directors"><a href="#">All Directors</a></h2>
       </div>
     </div>
-    <div class="grid">
-      <div class="large-card">
-        <div class="movie-image kubrick">
-          <img src="assets/img/kurbrick.jpg" />
-        </div>
-        <div class="info">
-          <h1 class="title">Stanley Kubrick</h1>
-          <p>July 26, 1928 - March 7, 1999 (70)</p>
-          <p>
-            Stanley Kubrick was an American film director, producer and
-            screenwriter. Widely considered one of the greatest filmmakers of
-            all time, his films—almost all of which are adaptations of novels or
-            short stories—cover a wide range of genres and feature innovative
-            cinematography, dark humor, realistic attention to detail and
-            extensive set designs.
-          </p>
-          <p>
-            2001: A Space Odyssey, Barry Lindon, A Clockwork Orange, Full Metal
-            Jacket, Eyes Wide Shut, The Shining
-          </p>
-        </div>
-        <div class="for-button">
-          <button type="button" class="add-favorites">
-            <span class="material-symbols-outlined"> </span> Favorite
-          </button>
-        </div>
-      </div>
+    <div class="grid" id="director-grid-large-cards-container-fav">
+      
     </div>
     <div class="get-top">
       <button class="get-started" type="button">Get Started</button>
       <span class="back-to-top"><a href="#">Back to Top</a></span>
     </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="assets/js/load-data.js"></script>  
   </body>
 </html>
 

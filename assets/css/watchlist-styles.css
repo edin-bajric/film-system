@@ -31,7 +31,7 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
-  .all {
+  .all-banner {
     font-family: "Oswald";
     font-weight: 400;
     font-size: 32px;
@@ -306,7 +306,7 @@
     .slogan {
       font-size: 48px;
     }
-    .all,
+    .all-banner,
     .sort {
       font-size: 24px;
     }

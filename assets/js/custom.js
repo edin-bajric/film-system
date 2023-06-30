@@ -28,12 +28,21 @@ $(document).ready(function() {
     window.location.hash = 'favorites-movies-page';
   });
 
+  $(document).on('click', '.logo-text', function(e) {
+    e.preventDefault();
+    window.location.hash = 'homepage';
+  });
+
+  $(document).on('click', '.footer-logo', function(e) {
+    e.preventDefault();
+    window.location.hash = 'homepage';
+  });
+
   $(document).on('click', '#single-movie-page-link', function(e) {
     e.preventDefault();
     window.location.hash = 'single-movie-page';
   });
 
-  
   $(document).on('click', '#single-director-page-link', function(e) {
     e.preventDefault();
     window.location.hash = 'single-director-page';

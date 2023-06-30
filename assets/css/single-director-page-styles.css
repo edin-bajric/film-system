@@ -151,39 +151,7 @@
     width: 70%;
     cursor: pointer;
   }
-  
-  .photos {
-    position: relative;
-    top: -64px;
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 40px;
-    color: white;
-    padding: 32px;
-  }
-  
-  .all-photos {
-    position: relative;
-    top: -60px;
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .first-col,
-  .second-col {
-    flex-basis: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-  
-  .all-photos img {
-    width: 100%;
-    height: 100%;
-    padding: 32px;
-    border-radius: 40px;
-  }
-  
+    
   .known-for {
     width: 50%;
     font-family: "Oswald";
@@ -323,13 +291,6 @@
     .desc {
       margin-top: 16px;
       width: 100%;
-    }
-    .all-photos {
-      padding: 32px;
-    }
-    .all-photos img {
-      padding: 0px;
-      border-radius: 0px;
     }
     .known-for {
       width: 100%;
