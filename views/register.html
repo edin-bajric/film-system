@@ -74,42 +74,6 @@
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script>
-      $(function () {
-        $("form[name='registration']").validate({
-          rules: {
-            username: "required",
-            email: {
-              required: true,
-              email: true,
-            },
-            npassword: {
-              required: true,
-              minlength: 8,
-            },
-            rpassword: {
-              required: true,
-              minlength: 8,
-            },
-          },
-          messages: {
-            username: "Please enter your username",
-            npassword: {
-              required: "Please enter your new password",
-              minlength: "Your password must be at least 8 characters long",
-            },
-            rpassword: {
-              required: "Please re-enter your password",
-              minlength: "Your password must be at least 8 characters long",
-            },
-            email: "Please enter a valid email address",
-          },
-
-          submitHandler: function (form) {
-            window.location.href = "../index.html";
-          },
-        });
-      });
-    </script>
+    
   </body>
 </html>
