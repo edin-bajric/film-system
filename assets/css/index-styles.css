@@ -230,6 +230,7 @@
     align-items: center;
     justify-content: center;
     top: 32px;
+    padding: 32px;
   }
 
   .back-to-top {
