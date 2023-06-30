@@ -53,10 +53,12 @@ $(document).ready(function() {
     onCreate: function() {
       $('.navbar').addClass('hidden');
       $('.footer').addClass('hidden');
+      $('.back-to-top').addClass('hidden');
     },
     onReady: function() {
       $('.navbar').addClass('hidden');
       $('.footer').addClass('hidden');
+      $('.back-to-top').addClass('hidden');
     }
   });
 
@@ -65,10 +67,12 @@ $(document).ready(function() {
     onCreate: function() {
       $('.navbar').addClass('hidden');
       $('.footer').addClass('hidden');
+      $('.back-to-top').addClass('hidden');
     },
     onReady: function() {
       $('.navbar').addClass('hidden');
       $('.footer').addClass('hidden');
+      $('.back-to-top').addClass('hidden');
     }
   });
 
@@ -77,6 +81,7 @@ $(document).ready(function() {
     onReady: function() {
       $('.navbar').removeClass('hidden');
       $('.footer').removeClass('hidden');
+      $('.back-to-top').removeClass('hidden');
     }
   });
 

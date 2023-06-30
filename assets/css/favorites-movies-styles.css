@@ -216,60 +216,6 @@
   ::-webkit-scrollbar-thumb:active {
     background: #146190;
   }
-  
-  .get-top {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: space-between;
-    top: 32px;
-  }
-  
-  .get-started {
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 16px;
-    cursor: pointer;
-    width: 325px;
-    height: 40px;
-    position: relative;
-    left: 32px;
-    border-radius: 50px;
-    color: #1e1e1e;
-    background: #77c3ec;
-    transition: all 0.3s ease 0s;
-    outline: none;
-    border: none;
-  }
-  
-  .get-started:hover {
-    background-color: #1779b2;
-  }
-  
-  .get-started:active {
-    background-color: #146190;
-  }
-  
-  .back-to-top {
-    padding: 32px;
-  }
-  
-  .back-to-top a {
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease 0s;
-  }
-  
-  .back-to-top a:hover {
-    color: #dcdcdc;
-  }
-  
-  .back-to-top:active {
-    color: #bdbdbd;
-  }
 
   @media (max-width: 991px) {
     .grid {
@@ -316,12 +262,6 @@
     }
     .rating {
       font-variation-settings: "FILL" 1, "wght" 400;
-    }
-    .get-top {
-      flex-direction: column;
-    }
-    .get-started {
-      left: 0;
     }
   }
   

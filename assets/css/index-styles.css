@@ -224,6 +224,37 @@
     height: 24px;
   }
 
+  .get-top {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    top: 32px;
+  }
+
+  .back-to-top {
+    padding: 32px;
+    position: absolute;
+    right: 0;
+  }
+  
+  .back-to-top a {
+    font-family: "Oswald";
+    font-weight: 400;
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+    transition: all 0.3s ease 0s;
+  }
+  
+  .back-to-top a:hover {
+    color: #dcdcdc;
+  }
+  
+  .back-to-top:active {
+    color: #bdbdbd;
+  }
+
   .footer-container {
     max-width: 1280px;
     height: 100px;
