@@ -40,10 +40,13 @@
           <a href="#favorites-movies-page" class="favorites-movies-page"
             >Favorites</a
           >
+          
           <a href="#register-page" class="register-page">Register</a>
           <a href="#login-page" class="login-page">Sign in</a>
+          
+          <a id="signout-button" style="display: none;">Sign out</a>
         </div>
-
+          
         <button class="hamburger">
           <span></span><span></span><span></span>
         </button>
@@ -108,5 +111,41 @@
     <script src="assets/js/jquery.spapp.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/button-function.js"></script>
+    <script>
+    function checkUserLoggedIn() {
+      var token = localStorage.getItem('token');
+    
+      
+      if (token) {
+        
+        return true;
+      }
+      return false;
+    }
+
+    $(document).ready(function () {
+  
+  var isLoggedIn = checkUserLoggedIn();
+
+ 
+  if (isLoggedIn) {
+    $(".register-page, .login-page").hide();
+    $("#signout-button").show();
+  } else {
+    $(".register-page, .login-page").show();
+    $("#signout-button").hide();
+  }
+
+  $("#signout-button").click(function () {
+    localStorage.removeItem('token');
+
+   
+alert("Logout successful!");
+window.location.href = "#homepage";
+location.reload();
+  });
+});
+
+    </script>
   </body>
 </html>

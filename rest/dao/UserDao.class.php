@@ -10,7 +10,7 @@ class UserDao extends BaseDao {
         $query = $this -> connection -> prepare("SELECT * FROM user WHERE username = :username");
         $query -> bindParam(":username", $username); 
         $query -> execute();
-        return $query -> fetchAll(PDO::FETCH_ASSOC);
+        return $query -> fetch(PDO::FETCH_ASSOC);
     }
 }
 ?>

@@ -4,26 +4,37 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 Flight::route('POST /user', function(){
-  $data = Flight::request()->data->getData();
-  $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
-  $user = [
-      'username' => $data['username'],
-      'password' => $hashedPassword,
-      'email' => $data['email'],
-      'created_at' => date('Y-m-d H:i:s')
-  ];
+    $data = Flight::request()->data->getData();
+    $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
+    $user = [
+        'username' => $data['username'],
+        'password' => $hashedPassword,
+        'email' => $data['email'],
+        'created_at' => date('Y-m-d H:i:s')
+    ];
+  
+    Flight::userService()->add($user);
+  
+    Flight::json(['message' => 'Registration successful']);
+  });
+  
+  Flight::route('POST /login', function () {
+    $data = Flight::request()->data->getData();
+    $user = Flight::userService()->get_user_by_username($data['username']);
 
-  Flight::userService()->add($user);
+    if (!$user || !password_verify($data['password'], $user['password'])) {
+        Flight::halt(401, 'Invalid username or password');
+    }
 
-  $payload = [
-      'username' => $data['username'],
-      'password' => $hashedPassword,
-      'created_at' => date('Y-m-d H:i:s')
-  ];
-  $jwtKey = Config::JWT_SECRET();
-  $token = JWT::encode($payload, $jwtKey, 'HS256');
+    $payload = [
+        'id' => $user['id'],
+        'username' => $user['username'],
+        'created_at' => date('Y-m-d H:i:s')
+    ];
 
-  Flight::json(['token' => $token]);
+    $token = JWT::encode($payload, Config::JWT_SECRET(), 'HS256'); 
+
+    Flight::json(['token' => $token]);
 });
 
 Flight::route('GET /user', function(){

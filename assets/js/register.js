@@ -30,14 +30,10 @@ $(document).ready(function () {
         email: email,
         password: password,
       },
-      success: function (response) {
-        var token = response.token;
-
-        localStorage.setItem("token", token);
-
+      success: function () {
         alert("Registration successful!");
 
-        window.location.href = "#homepage";
+        window.location.href = "#login-page";
       },
       error: function (error) {
         alert("Registration failed. Please try again.", error);
@@ -45,3 +41,4 @@ $(document).ready(function () {
     });
   });
 });
+
