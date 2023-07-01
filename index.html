@@ -60,7 +60,9 @@
         >Favorites</a
       >
       <a href="#register-page" class="register-page-mobile">Register</a>
-      <a href="#login-page" class="login-page">Sign in</a>
+      <a href="#login-page" class="login-page-mobile">Sign in</a>
+
+      <a id="signout-button-mobile" style="display: none;">Sign out</a>
       <form class="mobile-search">
         <input type="text" placeholder="Search movies or directors" />
         <button type="submit">
@@ -129,14 +131,24 @@
 
  
   if (isLoggedIn) {
-    $(".register-page, .login-page").hide();
-    $("#signout-button").show();
-  } else {
-    $(".register-page, .login-page").show();
-    $("#signout-button").hide();
-  }
+      $(".register-page, .login-page").hide();
+      $(".watchlist-page, .favorites-movies-page").show();
+      $("#signout-button").show();
 
-  $("#signout-button").click(function () {
+      $(".register-page-mobile, .login-page-mobile").hide();
+      $(".watchlist-page-mobile, .favorites-movies-page-mobile").show();
+      $("#signout-button-mobile").show();
+    } else {
+      $(".register-page, .login-page").show();
+      $(".watchlist-page, .favorites-movies-page").hide();
+      $("#signout-button").hide();
+
+      $(".register-page-mobile, .login-page-mobile").show();
+      $(".watchlist-page-mobile, .favorites-movies-page-mobile").hide();
+      $("#signout-button-mobile").hide();
+    }
+
+  $("#signout-button, #signout-button-mobile").click(function () {
     localStorage.removeItem('token');
 
    
