@@ -37,7 +37,7 @@ $(document).ready(function () {
 
         alert("Registration successful!");
 
-        window.location.href = "homepage";
+        window.location.href = "#homepage";
       },
       error: function (error) {
         alert("Registration failed. Please try again.", error);
