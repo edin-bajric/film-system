@@ -3,19 +3,9 @@
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
-
 Flight::route('POST /user', function(){
   $data = Flight::request()->data->getData();
-
-  // Validate the form data (add your validation logic here)
-  if (empty($data['username']) || empty($data['email']) || empty($data['password'])) {
-      Flight::halt(400, 'Please fill in all fields');
-  }
-
-  // Hash the password
   $hashedPassword = password_hash($data['password'], PASSWORD_DEFAULT);
-
-  // Create a new user object
   $user = [
       'username' => $data['username'],
       'password' => $hashedPassword,
@@ -23,20 +13,16 @@ Flight::route('POST /user', function(){
       'created_at' => date('Y-m-d H:i:s')
   ];
 
-  // Save the user in the database using the UserService
   Flight::userService()->add($user);
 
-
-  // Generate a JWT for the user
   $payload = [
       'username' => $data['username'],
       'password' => $hashedPassword,
       'created_at' => date('Y-m-d H:i:s')
   ];
-  $jwtKey = "secret"; // Replace with your own secret key
+  $jwtKey = Config::JWT_SECRET();
   $token = JWT::encode($payload, $jwtKey, 'HS256');
 
-  // Return the token as a response
   Flight::json(['token' => $token]);
 });
 
