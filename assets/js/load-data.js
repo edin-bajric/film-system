@@ -620,7 +620,7 @@ $(document).ready(function () {
       );
     },
     error: function (error) {
-      console.log("Error fetching movie data:", error);
+      console.log("Error fetching director data:", error);
     },
   });
 });
