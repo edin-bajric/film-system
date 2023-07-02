@@ -55,6 +55,7 @@ function deleteMovieFromWatchlist(decodedUserId, movieId) {
     },
     success: function (response) {
       alert("Movie removed from watchlist!");
+      location.reload();
     },
     error: function (error) {
       alert("Error removing movie from watchlist.");
@@ -87,6 +88,32 @@ function addMovieToFavorite(movieId) {
   });
 }
 
+function deleteMovieFromFavorite(dUserId, movieId) {
+ 
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var dUserId = decodedToken.id;
+
+
+  $.ajax({
+    url: "/film-system/rest/movie/favorite/" + dUserId + "/" + movieId,
+    method: "DELETE",
+    data: {
+      user_id: dUserId,
+      movie_id: movieId,
+    },
+    success: function (response) {
+      alert("Movie removed from favorites!");
+      location.reload();
+    },
+    error: function (error) {
+      alert("Error removing movie from favorites.");
+    },
+  });
+}
+
 function addDirectorToFavorite(directorId) {
  
   var token = localStorage.getItem("token");
@@ -108,6 +135,32 @@ function addDirectorToFavorite(directorId) {
     },
     error: function (error) {
       alert("Error adding director to favorites.");
+    },
+  });
+}
+
+function deleteDirectorFromFavorite(deUserId, directorId) {
+ 
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var deUserId = decodedToken.id;
+
+
+  $.ajax({
+    url: "/film-system/rest/director/favorite/" + deUserId + "/" + directorId,
+    method: "DELETE",
+    data: {
+      user_id: deUserId,
+      director_id: directorId,
+    },
+    success: function (response) {
+      alert("Director removed from favorites!");
+      location.reload();
+    },
+    error: function (error) {
+      alert("Error removing director from favorites.");
     },
   });
 }
@@ -420,6 +473,12 @@ $(document).ready(function () {
   var userId = decodedToken.id;
 
 
+  $("#movie-grid-large-cards-container-fav").on("click", ".add-favorites", function () {
+    var movieId = $(this).closest(".large-card").find("a").data("id");
+    deleteMovieFromFavorite(userId, movieId);
+  });
+
+
   $.ajax({
     url: "/film-system/rest/full/movie/favorite/" + userId,
     method: "GET",
@@ -498,6 +557,12 @@ $(document).ready(function () {
   
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
+
+
+  $("#director-grid-large-cards-container-fav").on("click", ".add-favorites", function () {
+    var directorId = $(this).closest(".large-card").find("a").data("id");
+    deleteDirectorFromFavorite(userId, directorId);
+  });
   $.ajax({
     url: "/film-system/rest/full/director/favorite/" + userId,
     method: "GET",

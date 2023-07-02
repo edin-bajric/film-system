@@ -15,5 +15,13 @@ class FavoriteService extends BaseService{
     public function get_director_from_favorites($user_id) {
         return $this -> dao -> get_director_from_favorites($user_id);
     }
+
+    public function delete_movie_from_favorites($user_id, $movie_id) {
+        return $this -> dao -> delete_movie_from_favorites($user_id, $movie_id);
+    }
+
+    public function delete_director_from_favorites($user_id, $director_id) {
+        return $this -> dao -> delete_director_from_favorites($user_id, $director_id);
+    }
 }
 ?>

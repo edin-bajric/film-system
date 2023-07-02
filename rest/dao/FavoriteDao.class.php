@@ -50,5 +50,19 @@ GROUP BY m.id;");
         $query -> execute();
         return $query -> fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function delete_movie_from_favorites ($user_id, $movie_id) {
+        $query = $this -> connection -> prepare("DELETE FROM favorite WHERE user_id = :user_id AND movie_id = :movie_id");
+        $query -> bindParam(":user_id", $user_id);
+        $query -> bindParam(":movie_id", $movie_id);
+        $query -> execute();
+    }
+
+    public function delete_director_from_favorites ($user_id, $director_id) {
+        $query = $this -> connection -> prepare("DELETE FROM favorite WHERE user_id = :user_id AND director_id = :director_id");
+        $query -> bindParam(":user_id", $user_id);
+        $query -> bindParam(":director_id", $director_id);
+        $query -> execute();
+    }
 }
 ?>
