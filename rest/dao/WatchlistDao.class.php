@@ -32,5 +32,12 @@ GROUP BY m.id;
         $query -> execute();
         return $query -> fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function delete_movie_from_watchlist ($user_id, $movie_id) {
+        $query = $this -> connection -> prepare("DELETE FROM watchlist WHERE user_id = :user_id AND movie_id = :movie_id");
+        $query -> bindParam(":user_id", $user_id);
+        $query -> bindParam(":movie_id", $movie_id);
+        $query -> execute();
+    }
 }
 ?>

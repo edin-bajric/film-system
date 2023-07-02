@@ -11,5 +11,9 @@ class WatchlistService extends BaseService{
     public function get_movie_from_watchlist($user_id) {
         return $this -> dao -> get_movie_from_watchlist ($user_id);
     }
+
+    public function delete_movie_from_watchlist($user_id, $movie_id) {
+        return $this -> dao -> delete_movie_from_watchlist($user_id, $movie_id);
+    }
 }
 ?>

@@ -37,6 +37,31 @@ function addMovieToWatchlist(movieId) {
   });
 }
 
+function deleteMovieFromWatchlist(decodedUserId, movieId) {
+ 
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var decodedUserId = decodedToken.id;
+
+
+  $.ajax({
+    url: "/film-system/rest/watchlist/" + decodedUserId + "/" + movieId,
+    method: "DELETE",
+    data: {
+      user_id: decodedUserId,
+      movie_id: movieId,
+    },
+    success: function (response) {
+      alert("Movie removed from watchlist!");
+    },
+    error: function (error) {
+      alert("Error removing movie from watchlist.");
+    },
+  });
+}
+
 function addMovieToFavorite(movieId) {
  
   var token = localStorage.getItem("token");
@@ -310,6 +335,12 @@ $(document).ready(function () {
   
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
+
+  $("#movie-grid-large-cards-container").on("click", ".add-watchlist", function () {
+    var movieId = $(this).closest(".large-card").find("a").data("id");
+    
+    deleteMovieFromWatchlist(userId, movieId);
+  });
 
   
   $.ajax({
