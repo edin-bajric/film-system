@@ -67,7 +67,7 @@
     color: white;
   }
   
-  .grid {
+  .favorites-directors-grid {
     display: grid;
     grid-gap: 32px;
   }
@@ -212,7 +212,7 @@
   }
 
   @media (max-width: 991px) {
-    .grid {
+    .favorites-directors-grid {
       margin-right: 48px;
     }
     .large-card {

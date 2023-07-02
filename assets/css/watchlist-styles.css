@@ -67,7 +67,7 @@
     content: " A-z";
   }
   
-  .grid {
+  .watchlist-grid {
     display: grid;
     grid-gap: 32px;
   }
@@ -217,7 +217,7 @@
   }
 
   @media (max-width: 991px) {
-    .grid {
+    .watchlist-grid {
       margin-right: 48px;
     }
     .large-card {
