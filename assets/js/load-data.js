@@ -1,4 +1,50 @@
+function decodeJwtToken(token) {
+  var base64Url = token.split('.')[1];
+  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var jsonPayload = decodeURIComponent(
+    atob(base64)
+      .split('')
+      .map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      })
+      .join('')
+  );
+  return JSON.parse(jsonPayload);
+}
+
+function addMovieToWatchlist(movieId) {
+ 
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var userId = decodedToken.id;
+
+
+  $.ajax({
+    url: "/film-system/rest/watchlist",
+    method: "POST",
+    data: {
+      user_id: userId,
+      movie_id: movieId,
+    },
+    success: function (response) {
+      alert("Movie added to watchlist!");
+    },
+    error: function (error) {
+      alert("Error adding movie to watchlist.");
+    },
+  });
+}
+
+
 $(document).ready(function () {
+
+  $("#movie-cards-container").on("click", ".add-watchlist", function () {
+    var movieId = $(this).closest(".card").find("a").data("id");
+    addMovieToWatchlist(movieId);
+  });
+
   $.ajax({
     url: "/film-system/rest/movie",
     method: "GET",
@@ -88,6 +134,11 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+  $("#movie-grid-cards-container").on("click", ".add-watchlist", function () {
+    var movieId = $(this).closest(".card").find("a").data("id");
+    addMovieToWatchlist(movieId);
+  });
   $.ajax({
     url: "/film-system/rest/movie",
     method: "GET",
@@ -180,8 +231,16 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var userId = decodedToken.id;
+
+  
   $.ajax({
-    url: "/film-system/rest/full/movie",
+    url: "/film-system/rest/full/watchlist/" + userId,
     method: "GET",
     success: function (response) {
       var movieGridLargeCardContainer = $("#movie-grid-large-cards-container");
