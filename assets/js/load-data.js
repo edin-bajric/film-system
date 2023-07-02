@@ -151,17 +151,15 @@ $(document).ready(function () {
 
         var cardHtml = `
           <div class="col">
-        <div class="card">
-        <a href="#single-director-page" id="single-director-page-link" data-id="${id}">
-          <img
-            src="${image}"
-            class="director-image
-          /></a>
-          <div class="container-box">
-            <h2 class="director-name">${name}</h2>
-            <button type="button" class="add-favorites">
-              <span class="material-symbols-outlined"> </span> Favorite
-            </button>
+            <div class="card">
+              <a href="#single-director-page" id="single-director-page-link" data-id="${id}">
+              <img src="${image}" class="director-image"/>
+              </a>
+              <div class="container-box">
+                <h2 class="director-name">${name}</h2>
+                <button type="button" class="add-favorites">
+                <span class="material-symbols-outlined"> </span> Favorite
+                </button>
           </div>
         </div>
       </div>
