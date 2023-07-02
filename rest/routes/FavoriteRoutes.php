@@ -22,4 +22,12 @@ Flight::route('DELETE /favorite/@id', function($id){
     Flight::favoriteService()->delete($id);
     Flight::json(["message" => "Favorite deleted successfully"]);
 });
+
+Flight::route('GET /full/movie/favorite/@user_id', function($user_id) {
+    Flight::json(Flight::favoriteService()->get_movie_from_favorites($user_id));
+});
+
+Flight::route('GET /full/director/favorite/@user_id', function($user_id) {
+    Flight::json(Flight::favoriteService()->get_director_from_favorites($user_id));
+});
 ?>

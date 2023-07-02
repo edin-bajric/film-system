@@ -37,12 +37,67 @@ function addMovieToWatchlist(movieId) {
   });
 }
 
+function addMovieToFavorite(movieId) {
+ 
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var userId = decodedToken.id;
+
+
+  $.ajax({
+    url: "/film-system/rest/favorite",
+    method: "POST",
+    data: {
+      user_id: userId,
+      movie_id: movieId,
+    },
+    success: function (response) {
+      alert("Movie added to favorites!");
+    },
+    error: function (error) {
+      alert("Error adding movie to favorites.");
+    },
+  });
+}
+
+function addDirectorToFavorite(directorId) {
+ 
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var userId = decodedToken.id;
+
+
+  $.ajax({
+    url: "/film-system/rest/favorite",
+    method: "POST",
+    data: {
+      user_id: userId,
+      director_id: directorId,
+    },
+    success: function (response) {
+      alert("Director added to favorites!");
+    },
+    error: function (error) {
+      alert("Error adding director to favorites.");
+    },
+  });
+}
+
 
 $(document).ready(function () {
 
   $("#movie-cards-container").on("click", ".add-watchlist", function () {
     var movieId = $(this).closest(".card").find("a").data("id");
     addMovieToWatchlist(movieId);
+  });
+
+  $("#movie-cards-container").on("click", ".add-favorites", function () {
+    var movieId = $(this).closest(".card").find("a").data("id");
+    addMovieToFavorite(movieId);
   });
 
   $.ajax({
@@ -89,6 +144,12 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+  $("#director-cards-container").on("click", ".add-favorites", function () {
+    var directorId = $(this).closest(".card").find("a").data("id");
+    addDirectorToFavorite(directorId);
+  });
+  
   $.ajax({
     url: "/film-system/rest/director",
     method: "GET",
@@ -139,6 +200,12 @@ $(document).ready(function () {
     var movieId = $(this).closest(".card").find("a").data("id");
     addMovieToWatchlist(movieId);
   });
+
+  $("#movie-grid-cards-container").on("click", ".add-favorites", function () {
+    var movieId = $(this).closest(".card").find("a").data("id");
+    addMovieToFavorite(movieId);
+  });
+
   $.ajax({
     url: "/film-system/rest/movie",
     method: "GET",
@@ -185,6 +252,12 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+  $("#director-grid-cards-container").on("click", ".add-favorites", function () {
+    var directorId = $(this).closest(".card").find("a").data("id");
+    addDirectorToFavorite(directorId);
+  });
+
   $.ajax({
     url: "/film-system/rest/director",
     method: "GET",
@@ -309,8 +382,15 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var userId = decodedToken.id;
+
+
   $.ajax({
-    url: "/film-system/rest/full/movie",
+    url: "/film-system/rest/full/movie/favorite/" + userId,
     method: "GET",
     success: function (response) {
       var movieGridLargeCardContainerFav = $(
@@ -381,8 +461,14 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
+
+  var token = localStorage.getItem("token");
+
+  
+  var decodedToken = decodeJwtToken(token);
+  var userId = decodedToken.id;
   $.ajax({
-    url: "/film-system/rest/director",
+    url: "/film-system/rest/full/director/favorite/" + userId,
     method: "GET",
     success: function (response) {
       var directorGridLargeCardContainerFav = $(
