@@ -175,7 +175,7 @@
   }
   
   .add-watchlist span::before {
-    content: "check";
+    content: "close";
   }
   
   .add-watchlist:hover {

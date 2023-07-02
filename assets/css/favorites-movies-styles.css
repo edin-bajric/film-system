@@ -175,7 +175,7 @@
   }
   
   .add-favorites span::before {
-    content: "favorite";
+    content: "close";
     font-variation-settings: "FILL" 1;
   }
   
