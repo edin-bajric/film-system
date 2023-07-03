@@ -17,7 +17,8 @@ class MovieDao extends BaseDao {
         m.writer, 
         m.actor, 
         m.description,
-        m.image
+        m.image,
+        m.trailer
         FROM movie m
         JOIN movie_director md ON m.id = md.movie_id
         JOIN director d ON d.id = md.director_id

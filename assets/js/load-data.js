@@ -195,7 +195,7 @@ $(document).ready(function () {
 
         var cardHtml = `
             <div class="card">
-              <a href="#single-movie-page" id="singe-movie-page-link" data-id="${id}">
+              <a href="#single-movie-page" id="single-movie-page-link" data-id="${id}">
                 <img src="${image}" class="movie-image">
               </a>
               <div class="container-box">
@@ -214,6 +214,11 @@ $(document).ready(function () {
 
         movieCardContainer.append(cardHtml);
       });
+      $(document).on(
+        "click",
+        "#single-movie-page-link",
+        handleMovieLinkClick
+      );
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -302,7 +307,7 @@ $(document).ready(function () {
         var cardHtml = `
           <div class="col">
           <div class="card">
-          <a href="#single-movie-page" id="singe-movie-page-link" data-id="${id}">
+          <a href="#single-movie-page" id="single-movie-page-link" data-id="${id}">
             <img src="${image}" class="movie-image" />
             </a>
             <div class="container-box">
@@ -322,6 +327,11 @@ $(document).ready(function () {
 
         movieGridCardContainer.append(cardHtml);
       });
+      $(document).on(
+        "click",
+        "#single-movie-page-link",
+        handleMovieLinkClick
+      );
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -430,7 +440,7 @@ $(document).ready(function () {
         var cardHtml = `
           <div class="large-card">
           <div class="movie-image">
-          <a href="#single-movie-page" id="singe-movie-page-link" data-id="${id}">
+          <a href="#single-movie-page" id="single-movie-page-link" data-id="${id}">
           <img src="${image}" /></a>
         </div>
           <div class="info">
@@ -458,6 +468,11 @@ $(document).ready(function () {
 
         movieGridLargeCardContainer.append(cardHtml);
       });
+      $(document).on(
+        "click",
+        "#single-movie-page-link",
+        handleMovieLinkClick
+      );
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -515,7 +530,7 @@ $(document).ready(function () {
         var cardHtml = `
           <div class="large-card">
           <div class="movie-image">
-          <a href="#single-movie-page" id="singe-movie-page-link" data-id="${id}">
+          <a href="#single-movie-page" id="single-movie-page-link" data-id="${id}">
           <img src="${image}" /></a>
         </div>
           <div class="info">
@@ -543,6 +558,11 @@ $(document).ready(function () {
 
         movieGridLargeCardContainerFav.append(cardHtml);
       });
+      $(document).on(
+        "click",
+        "#single-movie-page-link",
+        handleMovieLinkClick
+      );
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -699,7 +719,8 @@ function handleDirectorLinkClick(e) {
   var directorId = $(this).data("id");
   loadSingleDirectorPage(directorId);
 }
-/*
+
+
   function loadSingleMoviePage(movieId) {
     $.ajax({
       url: '/film-system/rest/full/movie',
@@ -713,19 +734,99 @@ function handleDirectorLinkClick(e) {
         });
   
         if (movie) {
+          var id = movie.id;
           var title = movie.title;
           var year = movie.year;
           var length = movie.length;
           var genre = movie.genre;
           var rating = movie.rating;
           var director = movie.director;
-          var description = movie.description;
           var writer = movie.writer;
           var actor = movie.actor;
+          var description = movie.description;
+          var image = movie.image;
+          var trailer = movie.trailer;
+  
+          console.log("id:", id);
+          console.log("title:", title);
+          console.log("year:", year);
+          console.log("length:", length);
+          console.log("genre:", genre);
+          console.log("rating:", rating);
+          console.log("director:", director);
+          console.log("writer:", writer);
+          console.log("actor:", actor);
+          console.log("description:", description);
+          console.log("image:", image);
+          console.log("trailer:", trailer);
           
 
           var cardHtml = `
-            
+          <div class="top-info">
+          <p>${year}</p>
+          <p>${length}</p>
+          <p>
+            Movie rating: ${rating}
+            <span class="material-symbols-outlined rating"> star </span>
+          </p>
+          
+        </div>
+        <div class="top-part">
+          <img
+            class="top-pic"
+            src="${image}"
+            alt="top-pic"
+          />
+          <h1 class="slogan">${title}</h1>
+        </div>
+    
+        <div class="title-buttons">
+          <div class="for-trailer">
+            <a
+              href="${trailer}"
+              class="youtube"
+              target="_blank"
+              ><button type="button" class="play-trailer">
+                <span class="material-symbols-outlined rate"> play_arrow </span>
+                Play trailer
+              </button></a
+            >
+          </div>
+          <div class="favorite-watchlist">
+            <button type="button" class="add-favorites">
+              <span class="material-symbols-outlined"> </span> Favorite
+            </button>
+            <button type="button" class="add-watchlist">
+              <span class="material-symbols-outlined"> </span> Watchlist
+            </button>
+          </div>
+        </div>
+        <div class="title-buttons-mobile">
+          <div class="for-trailer-mobile">
+            <a href="${trailer}" target="_blank"
+              ><span class="material-symbols-outlined rate"> play_arrow </span></a
+            >
+          </div>
+          <div class="favorite-mobile">
+            <span class="material-symbols-outlined"> </span>
+          </div>
+          <div class="watchlist-mobile">
+            <span class="material-symbols-outlined"> </span>
+          </div>
+        </div>
+        <div class="all-info">
+          <div class="some-info">
+            <p class="genre">${genre}</p>
+            <p class="directors">${director}</p>
+            <p class="writers">${writer}</p>
+            <p class="stars">${actor}</p>
+          </div>
+          <div class="desc">
+            <p>
+              ${description}
+            </p>
+          </div>
+        </div>
           `;
   
           singleMoviePageData.html(cardHtml);
@@ -744,4 +845,4 @@ function handleDirectorLinkClick(e) {
     var movieId = $(this).data('id');
     loadSingleMoviePage(movieId);
   }
-  */
+  
