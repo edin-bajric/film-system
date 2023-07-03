@@ -646,6 +646,7 @@ $(document).ready(function () {
 });
 
 function loadSingleDirectorPage(directorId) {
+  
   $.ajax({
     url: "/film-system/rest/director",
     method: "GET",
@@ -704,6 +705,11 @@ function loadSingleDirectorPage(directorId) {
           `;
 
         singleDirectorPageData.html(cardHtml);
+
+        $(".add-favorites").on("click", function () {
+          addDirectorToFavorite(directorId);
+        });
+
       } else {
         console.log("Director not found");
       }
@@ -830,6 +836,13 @@ function handleDirectorLinkClick(e) {
           `;
   
           singleMoviePageData.html(cardHtml);
+
+          $(".add-favorites").on("click", function () {
+            addMovieToFavorite(movieId);
+          });
+          $(".add-watchlist").on("click", function () {
+            addMovieToWatchlist(movieId);
+          });
         } else {
           console.log('Movie not found');
         }
