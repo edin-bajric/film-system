@@ -26,4 +26,8 @@ Flight::route('DELETE /movie/@id', function($id){
 Flight::route('GET /full/movie', function() {
     Flight::json(Flight::movieService()->get_full_movie());
 });
+
+Flight::route('GET /full/movie/@title', function($title) {
+    Flight::json(Flight::movieService()->get_movie_by_title($title));
+});
 ?>

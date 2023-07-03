@@ -27,9 +27,9 @@
         <a href="#homepage"
           ><img class="logo" src="assets/img/Logo.png" alt="logo"
         /></a>
-        <form class="search">
-          <input type="text" placeholder="Search movies or directors" />
-          <button type="submit">
+        <form class="search" id="search-form">
+          <input type="text" id="search-input" placeholder="Search movies" />
+          <button type="submit" >
             <span class="material-symbols-outlined"> search </span>
           </button>
         </form>
@@ -64,13 +64,13 @@
 
       <a id="signout-button-mobile" style="display: none;">Sign out</a>
       <form class="mobile-search">
-        <input type="text" placeholder="Search movies or directors" />
-        <button type="submit">
+        <input type="text" id="mobile-search-input" placeholder="Search movies or directors" />
+        <button type="submit" id="mobile-search-submit">
           <span class="material-symbols-outlined"> search </span>
         </button>
       </form>
     </div>
-
+   
     <main id="spapp" role="main">
       <section id="movies-page"></section>
       <section id="directors-page"></section>
@@ -113,6 +113,7 @@
     <script src="assets/js/jquery.spapp.js"></script>
     <script src="assets/js/custom.js"></script>
     <script src="assets/js/button-function.js"></script>
+    <script src="assets/js/search.js"></script>
     <script>
     function checkUserLoggedIn() {
       var token = localStorage.getItem('token');

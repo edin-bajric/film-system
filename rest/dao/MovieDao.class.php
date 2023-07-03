@@ -28,5 +28,12 @@ class MovieDao extends BaseDao {
         $query -> execute();
         return $query -> fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function get_movie_by_title($title) {
+        $query = $this -> connection -> prepare("SELECT id FROM movie WHERE title = :title");
+        $query -> bindParam(":title", $title);
+        $query -> execute();
+        return $query -> fetch(PDO::FETCH_ASSOC);
+    }
 }
 ?>

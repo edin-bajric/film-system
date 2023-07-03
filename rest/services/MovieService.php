@@ -11,5 +11,9 @@ class MovieService extends BaseService{
     public function get_full_movie() {
         return $this -> dao -> get_full_movie();
     }
+
+    public function get_movie_by_title($title) {
+        return $this -> dao -> get_movie_by_title($title);
+    }
 }
 ?>
