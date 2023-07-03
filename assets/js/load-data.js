@@ -22,7 +22,7 @@ function addMovieToWatchlist(movieId) {
 
 
   $.ajax({
-    url: "/watchlist",
+    url: "/film-system/rest/watchlist",
     method: "POST",
     data: {
       user_id: userId,
@@ -47,7 +47,7 @@ function deleteMovieFromWatchlist(decodedUserId, movieId) {
 
 
   $.ajax({
-    url: "/watchlist/" + decodedUserId + "/" + movieId,
+    url: "/film-system/rest/watchlist/" + decodedUserId + "/" + movieId,
     method: "DELETE",
     data: {
       user_id: decodedUserId,
@@ -73,7 +73,7 @@ function addMovieToFavorite(movieId) {
 
 
   $.ajax({
-    url: "/favorite",
+    url: "/film-system/rest/favorite",
     method: "POST",
     data: {
       user_id: userId,
@@ -98,7 +98,7 @@ function deleteMovieFromFavorite(dUserId, movieId) {
 
 
   $.ajax({
-    url: "/movie/favorite/" + dUserId + "/" + movieId,
+    url: "/film-system/rest/movie/favorite/" + dUserId + "/" + movieId,
     method: "DELETE",
     data: {
       user_id: dUserId,
@@ -124,7 +124,7 @@ function addDirectorToFavorite(directorId) {
 
 
   $.ajax({
-    url: "/favorite",
+    url: "/film-system/rest/favorite",
     method: "POST",
     data: {
       user_id: userId,
@@ -149,7 +149,7 @@ function deleteDirectorFromFavorite(deUserId, directorId) {
 
 
   $.ajax({
-    url: "/director/favorite/" + deUserId + "/" + directorId,
+    url: "/film-system/rest/director/favorite/" + deUserId + "/" + directorId,
     method: "DELETE",
     data: {
       user_id: deUserId,
@@ -179,7 +179,7 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "/movie",
+    url: "/film-system/rest/movie",
     method: "GET",
     success: function (response) {
       var movieCardContainer = $("#movie-cards-container");
@@ -234,7 +234,7 @@ $(document).ready(function () {
   });
   
   $.ajax({
-    url: "/director",
+    url: "/film-system/rest/director",
     method: "GET",
     success: function (response) {
       var directorCardContainer = $("#director-cards-container");
@@ -290,7 +290,7 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "/movie",
+    url: "/film-system/rest/movie",
     method: "GET",
     success: function (response) {
       var movieGridCardContainer = $("#movie-grid-cards-container");
@@ -347,7 +347,7 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "/director",
+    url: "/film-system/rest/director",
     method: "GET",
     success: function (response) {
       var directorGridCardContainer = $("#director-grid-cards-container");
@@ -407,7 +407,7 @@ $(document).ready(function () {
 
   
   $.ajax({
-    url: "/full/watchlist/" + userId,
+    url: "/film-system/rest/full/watchlist/" + userId,
     method: "GET",
     success: function (response) {
       var movieGridLargeCardContainer = $("#movie-grid-large-cards-container");
@@ -495,7 +495,7 @@ $(document).ready(function () {
 
 
   $.ajax({
-    url: "/full/movie/favorite/" + userId,
+    url: "/film-system/rest/full/movie/favorite/" + userId,
     method: "GET",
     success: function (response) {
       var movieGridLargeCardContainerFav = $(
@@ -584,7 +584,7 @@ $(document).ready(function () {
     deleteDirectorFromFavorite(userId, directorId);
   });
   $.ajax({
-    url: "/full/director/favorite/" + userId,
+    url: "/film-system/rest/full/director/favorite/" + userId,
     method: "GET",
     success: function (response) {
       var directorGridLargeCardContainerFav = $(
@@ -648,7 +648,7 @@ $(document).ready(function () {
 function loadSingleDirectorPage(directorId) {
   
   $.ajax({
-    url: "/director",
+    url: "/film-system/rest/director",
     method: "GET",
     success: function (response) {
       console.log(response);
@@ -729,7 +729,7 @@ function handleDirectorLinkClick(e) {
 
   function loadSingleMoviePage(movieId) {
     $.ajax({
-      url: '/full/movie',
+      url: '/film-system/rest/full/movie',
       method: 'GET',
       success: function(response) {
         console.log(response); 
