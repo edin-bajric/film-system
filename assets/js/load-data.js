@@ -843,6 +843,12 @@ function handleDirectorLinkClick(e) {
           $(".add-watchlist").on("click", function () {
             addMovieToWatchlist(movieId);
           });
+          $(".favorite-mobile").on("click", function () {
+            addMovieToFavorite(movieId);
+          });
+          $(".watchlist-mobile").on("click", function () {
+            addMovieToWatchlist(movieId);
+          });
         } else {
           console.log('Movie not found');
         }

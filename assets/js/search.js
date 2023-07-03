@@ -42,6 +42,8 @@ $(document).ready(function() {
     loadSingleMoviePage(movieId);
   
     window.location.hash = "single-movie-page";
+
+    $("#search-input").val("");
   }
   
   
