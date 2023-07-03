@@ -179,7 +179,7 @@ $(document).ready(function () {
   });
 
   $.ajax({
-    url: "/film-system/rest/movie",
+    url: "/https://shark-app-hvcew.ondigitalocean.app/rest/movie",
     method: "GET",
     success: function (response) {
       var movieCardContainer = $("#movie-cards-container");
