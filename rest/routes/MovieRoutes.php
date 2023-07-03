@@ -4,6 +4,35 @@ Flight::route('POST /movie', function(){
     Flight::json(Flight::movieService()->add($data));
 });
 
+
+/**
+ * @OA\Get(
+ *     path="/movie",
+ *     summary="Get all movies",
+ *     tags={"Movies"},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(
+ *                 @OA\Property(property="id", type="integer"),
+ *                 @OA\Property(property="title", type="string"),
+ *                 @OA\Property(property="year", type="integer"),
+ *                 @OA\Property(property="length", type="string"),
+ *                 @OA\Property(property="rating", type="float"),
+ *                 @OA\Property(property="description", type="string"),
+ *                 @OA\Property(property="writer", type="string") 
+ *                 
+ *             )
+ *         )
+ *     ),
+ *     security={
+ *         {"bearerAuth": {}}
+ *     }
+ * )
+ */
+
 Flight::route('GET /movie', function(){
     Flight::json(Flight::movieService()->get());
 });

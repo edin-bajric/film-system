@@ -27,6 +27,11 @@ Flight::register('userService', 'UserService');
 Flight::register('watchlistService', 'WatchlistService');
 Flight::register('favoriteService', 'FavoriteService');
 
+Flight::route('GET /docs.json', function(){
+    $openapi = \OpenApi\scan('routes');
+    header('Content-Type: application/json');
+    echo $openapi->toJson();
+  });
 
 Flight::start();
 ?>

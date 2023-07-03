@@ -4,6 +4,27 @@ Flight::route('POST /director', function(){
     Flight::json(Flight::directorService()->add($data));
 });
 
+/**
+ * @OA\Get(
+ *     path="/director",
+ *     summary="Get all directors",
+ *     tags={"Directors"},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(
+ *                 @OA\Property(property="id", type="integer"),
+ *                 @OA\Property(property="name", type="string")
+ *             )
+ *         )
+ *     ),
+ *     security={
+ *         {"bearerAuth": {}}
+ *     }
+ * )
+ */
 Flight::route('GET /director', function(){
     Flight::json(Flight::directorService()->get());
 });
