@@ -23,7 +23,7 @@ $(document).ready(function () {
     }
 
     $.ajax({
-      url: "/film-system/rest/user",
+      url: "/rest/user",
       method: "POST",
       data: {
         username: username,
