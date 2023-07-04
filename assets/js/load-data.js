@@ -1,5 +1,7 @@
 function decodeJwtToken(token) {
+  console.log(token);
   var base64Url = token.split('.')[1];
+  console.log(base64Url);
   var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
   var jsonPayload = decodeURIComponent(
     atob(base64)
@@ -25,8 +27,11 @@ function addMovieToWatchlist(movieId) {
     url: "rest/watchlist",
     method: "POST",
     data: {
-      user_id: userId,
+      //user_id: userId,
       movie_id: movieId,
+    },
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
     },
     success: function (response) {
       alert("Movie added to watchlist!");
@@ -53,6 +58,9 @@ function deleteMovieFromWatchlist(decodedUserId, movieId) {
       user_id: decodedUserId,
       movie_id: movieId,
     },
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+    },
     success: function (response) {
       alert("Movie removed from watchlist!");
       location.reload();
@@ -76,8 +84,11 @@ function addMovieToFavorite(movieId) {
     url: "rest/favorite",
     method: "POST",
     data: {
-      user_id: userId,
+     // user_id: userId,
       movie_id: movieId,
+    },
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
     },
     success: function (response) {
       alert("Movie added to favorites!");
@@ -101,8 +112,11 @@ function deleteMovieFromFavorite(dUserId, movieId) {
     url: "rest/movie/favorite/" + dUserId + "/" + movieId,
     method: "DELETE",
     data: {
-      user_id: dUserId,
+     // user_id: dUserId,
       movie_id: movieId,
+    },
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
     },
     success: function (response) {
       alert("Movie removed from favorites!");
@@ -126,6 +140,9 @@ function addDirectorToFavorite(directorId) {
   $.ajax({
     url: "rest/favorite",
     method: "POST",
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+    },
     data: {
       user_id: userId,
       director_id: directorId,
@@ -154,6 +171,9 @@ function deleteDirectorFromFavorite(deUserId, directorId) {
     data: {
       user_id: deUserId,
       director_id: directorId,
+    },
+    beforeSend: function (xhr) {
+      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
     },
     success: function (response) {
       alert("Director removed from favorites!");

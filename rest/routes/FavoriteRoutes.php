@@ -27,6 +27,9 @@
 
 Flight::route('POST /favorite', function(){
     $data = Flight::request()->data->getData();
+    //var_dump(Flight::get('user')["id"]); die;
+    //var_dump($data["movie_id"]); die;
+    $data["user_id"] = Flight::get('user')["id"];
     Flight::json(Flight::favoriteService()->add($data));
 });
 
@@ -166,6 +169,11 @@ Flight::route('GET /full/director/favorite/@user_id', function($user_id) {
  */
 
 Flight::route('DELETE /movie/favorite/@user_id/@movie_id', function($user_id, $movie_id){
+    $decoded = Flight::get('user')["id"];
+    if ($user_id != $decoded) {
+        Flight::json(["message" => "Ne moze!"], 400);
+        die;
+    }
     Flight::favoriteService()->delete_movie_from_favorites($user_id, $movie_id);
     Flight::json(["message" => "Favorite deleted successfully"]);
 });

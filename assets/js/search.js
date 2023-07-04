@@ -18,7 +18,7 @@ $(document).ready(function() {
     $("#search-results").empty();
   
     $.ajax({
-      url: "/film-system/rest/full/movie/" + title,
+      url: "rest/full/movie/" + title,
       method: "GET",
       data: {
         title: title

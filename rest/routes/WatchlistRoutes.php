@@ -33,6 +33,7 @@
 
 Flight::route('POST /watchlist', function(){
     $data = Flight::request()->data->getData();
+    $data["user_id"] = Flight::get('user')["id"];
     Flight::json(Flight::watchlistService()->add($data));
 });
 
