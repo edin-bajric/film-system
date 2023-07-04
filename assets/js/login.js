@@ -5,7 +5,7 @@ function loginUser(username, password) {
     }
   
     $.ajax({
-      url: "/rest/login",
+      url: "/film-system/rest/login",
       method: "POST",
       data: {
         username: username,
