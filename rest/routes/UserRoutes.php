@@ -79,6 +79,37 @@ Flight::route('POST /user', function(){
     Flight::json(['token' => $token]);
 });
 
+/**
+ * @OA\Get(
+ *     path="/user",
+ *     summary="Get all users",
+ *     tags={"User"},
+ *     @OA\Response(
+ *         response=200,
+ *         description="Successful operation",
+ *         @OA\JsonContent(
+ *             type="array",
+ *             @OA\Items(
+ *                 type="object",
+ *                 @OA\Property(
+ *                     property="id",
+ *                     type="integer",
+ *                     example=1
+ *                 ),
+ *                 @OA\Property(
+ *                     property="name",
+ *                     type="string",
+ *                     example="John Doe"
+ *                 ),
+ *             )
+ *         )
+ *     ),
+ *     security={
+ *         {"bearerAuth": {}}
+ *     }
+ * )
+ */
+
 Flight::route('GET /user', function(){
     Flight::json(Flight::userService()->get());
 });
