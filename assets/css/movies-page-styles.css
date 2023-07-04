@@ -194,30 +194,6 @@
   left: 32px;
 }
 
-.sort {
-  font-family: "Oswald";
-  font-weight: 400;
-  font-size: 32px;
-  position: relative;
-  color: white;
-  bottom: 50px;
-  right: 32px;
-}
-
-.sort::after {
-  content: " Latest";
-  color: #77c3ec;
-  cursor: pointer;
-}
-
-.sort:hover::after {
-  color: white;
-}
-
-.sort.clicker::after {
-  content: " A-z";
-}
-
 .movie-grid {
   display: grid;
   grid-gap: 16px;
@@ -289,11 +265,7 @@
     height: 200px;
   }
   .all,
-  .sort,
   .most-popular {
     font-size: 24px;
-  }
-  .sort:hover::after {
-    color: #77c3ec;
   }
 }

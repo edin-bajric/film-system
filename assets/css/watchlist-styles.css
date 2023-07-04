@@ -43,30 +43,6 @@
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
-  .sort {
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 32px;
-    position: relative;
-    color: white;
-    bottom: 175px;
-    right: 42px;
-  }
-  
-  .sort::after {
-    content: " Latest";
-    color: #77c3ec;
-    cursor: pointer;
-  }
-  
-  .sort:hover::after {
-    color: white;
-  }
-  
-  .sort.clicker::after {
-    content: " A-z";
-  }
-  
   .watchlist-grid {
     display: grid;
     grid-gap: 32px;
@@ -252,12 +228,9 @@
     .slogan {
       font-size: 48px;
     }
-    .all-banner,
-    .sort {
+    .all-banner
+    {
       font-size: 24px;
-    }
-    .sort:hover::after {
-      color: #77c3ec;
     }
     .rating {
       font-variation-settings: "FILL" 1, "wght" 400;
