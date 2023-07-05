@@ -29,7 +29,7 @@
         /></a>
         <form class="search" id="search-form">
           <input type="text" id="search-input" placeholder="Search movies" />
-          <button type="submit" >
+          <button type="submit">
             <span class="material-symbols-outlined"> search </span>
           </button>
         </form>
@@ -40,13 +40,13 @@
           <a href="#favorites-movies-page" class="favorites-movies-page"
             >Favorites</a
           >
-          
+
           <a href="#register-page" class="register-page">Register</a>
           <a href="#login-page" class="login-page">Sign in</a>
-          
-          <a id="signout-button" style="display: none;">Sign out</a>
+
+          <a id="signout-button" style="display: none">Sign out</a>
         </div>
-          
+
         <button class="hamburger">
           <span></span><span></span><span></span>
         </button>
@@ -62,15 +62,19 @@
       <a href="#register-page" class="register-page-mobile">Register</a>
       <a href="#login-page" class="login-page-mobile">Sign in</a>
 
-      <a id="signout-button-mobile" style="display: none;">Sign out</a>
+      <a id="signout-button-mobile" style="display: none">Sign out</a>
       <form class="mobile-search">
-        <input type="text" id="mobile-search-input" placeholder="Search movies or directors" />
+        <input
+          type="text"
+          id="mobile-search-input"
+          placeholder="Search movies or directors"
+        />
         <button type="submit" id="mobile-search-submit">
           <span class="material-symbols-outlined"> search </span>
         </button>
       </form>
     </div>
-   
+
     <main id="spapp" role="main">
       <section id="movies-page"></section>
       <section id="directors-page"></section>
@@ -115,50 +119,44 @@
     <script src="assets/js/button-function.js"></script>
     <script src="assets/js/search.js"></script>
     <script>
-    function checkUserLoggedIn() {
-      var token = localStorage.getItem('token');
-    
-      
-      if (token) {
-        
-        return true;
+      function checkUserLoggedIn() {
+        var token = localStorage.getItem("token");
+
+        if (token) {
+          return true;
+        }
+        return false;
       }
-      return false;
-    }
 
-    $(document).ready(function () {
-  
-  var isLoggedIn = checkUserLoggedIn();
+      $(document).ready(function () {
+        var isLoggedIn = checkUserLoggedIn();
 
- 
-  if (isLoggedIn) {
-      $(".register-page, .login-page").hide();
-      $(".watchlist-page, .favorites-movies-page").show();
-      $("#signout-button").show();
+        if (isLoggedIn) {
+          $(".register-page, .login-page").hide();
+          $(".watchlist-page, .favorites-movies-page").show();
+          $("#signout-button").show();
 
-      $(".register-page-mobile, .login-page-mobile").hide();
-      $(".watchlist-page-mobile, .favorites-movies-page-mobile").show();
-      $("#signout-button-mobile").show();
-    } else {
-      $(".register-page, .login-page").show();
-      $(".watchlist-page, .favorites-movies-page").hide();
-      $("#signout-button").hide();
+          $(".register-page-mobile, .login-page-mobile").hide();
+          $(".watchlist-page-mobile, .favorites-movies-page-mobile").show();
+          $("#signout-button-mobile").show();
+        } else {
+          $(".register-page, .login-page").show();
+          $(".watchlist-page, .favorites-movies-page").hide();
+          $("#signout-button").hide();
 
-      $(".register-page-mobile, .login-page-mobile").show();
-      $(".watchlist-page-mobile, .favorites-movies-page-mobile").hide();
-      $("#signout-button-mobile").hide();
-    }
+          $(".register-page-mobile, .login-page-mobile").show();
+          $(".watchlist-page-mobile, .favorites-movies-page-mobile").hide();
+          $("#signout-button-mobile").hide();
+        }
 
-  $("#signout-button, #signout-button-mobile").click(function () {
-    localStorage.removeItem('token');
+        $("#signout-button, #signout-button-mobile").click(function () {
+          localStorage.removeItem("token");
 
-   
-alert("Logout successful!");
-window.location.href = "#homepage";
-location.reload();
-  });
-});
-
+          alert("Logout successful!");
+          window.location.href = "#homepage";
+          location.reload();
+        });
+      });
     </script>
   </body>
 </html>
