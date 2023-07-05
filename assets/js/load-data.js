@@ -15,11 +15,6 @@ function decodeJwtToken(token) {
 }
 
 function addMovieToWatchlist(movieId) {
-  var token = localStorage.getItem("token");
-
-  var decodedToken = decodeJwtToken(token);
-  var userId = decodedToken.id;
-
   $.ajax({
     url: "rest/watchlist",
     method: "POST",
@@ -40,11 +35,6 @@ function addMovieToWatchlist(movieId) {
 }
 
 function deleteMovieFromWatchlist(decodedUserId, movieId) {
-  var token = localStorage.getItem("token");
-
-  var decodedToken = decodeJwtToken(token);
-  var decodedUserId = decodedToken.id;
-
   $.ajax({
     url: "rest/watchlist/" + decodedUserId + "/" + movieId,
     method: "DELETE",
@@ -66,11 +56,6 @@ function deleteMovieFromWatchlist(decodedUserId, movieId) {
 }
 
 function addMovieToFavorite(movieId) {
-  var token = localStorage.getItem("token");
-
-  var decodedToken = decodeJwtToken(token);
-  var userId = decodedToken.id;
-
   $.ajax({
     url: "rest/favorite",
     method: "POST",
@@ -91,11 +76,6 @@ function addMovieToFavorite(movieId) {
 }
 
 function deleteMovieFromFavorite(dUserId, movieId) {
-  var token = localStorage.getItem("token");
-
-  var decodedToken = decodeJwtToken(token);
-  var dUserId = decodedToken.id;
-
   $.ajax({
     url: "rest/movie/favorite/" + dUserId + "/" + movieId,
     method: "DELETE",
@@ -117,11 +97,6 @@ function deleteMovieFromFavorite(dUserId, movieId) {
 }
 
 function addDirectorToFavorite(directorId) {
-  var token = localStorage.getItem("token");
-
-  var decodedToken = decodeJwtToken(token);
-  var userId = decodedToken.id;
-
   $.ajax({
     url: "rest/favorite",
     method: "POST",
@@ -142,11 +117,6 @@ function addDirectorToFavorite(directorId) {
 }
 
 function deleteDirectorFromFavorite(deUserId, directorId) {
-  var token = localStorage.getItem("token");
-
-  var decodedToken = decodeJwtToken(token);
-  var deUserId = decodedToken.id;
-
   $.ajax({
     url: "rest/director/favorite/" + deUserId + "/" + directorId,
     method: "DELETE",
