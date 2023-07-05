@@ -9,10 +9,7 @@ $(document).ready(function () {
   app.route({ view: "directors-page", load: "directors-page.html" });
   app.route({ view: "watchlist-page", load: "watchlist.html" });
   app.route({ view: "favorites-movies-page", load: "favorites-movies.html" });
-  app.route({
-    view: "favorites-directors-page",
-    load: "favorites-directors.html",
-  });
+  app.route({ view: "favorites-directors-page", load: "favorites-directors.html"});
   app.route({ view: "login-page", load: "login.html" });
   app.route({ view: "register-page", load: "register.html" });
   app.route({ view: "single-movie-page", load: "single-movie-page.html" });

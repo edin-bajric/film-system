@@ -1,27 +1,24 @@
 function decodeJwtToken(token) {
   console.log(token);
-  var base64Url = token.split('.')[1];
+  var base64Url = token.split(".")[1];
   console.log(base64Url);
-  var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+  var base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
   var jsonPayload = decodeURIComponent(
     atob(base64)
-      .split('')
+      .split("")
       .map(function (c) {
-        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+        return "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2);
       })
-      .join('')
+      .join("")
   );
   return JSON.parse(jsonPayload);
 }
 
 function addMovieToWatchlist(movieId) {
- 
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
-
 
   $.ajax({
     url: "rest/watchlist",
@@ -31,7 +28,7 @@ function addMovieToWatchlist(movieId) {
       movie_id: movieId,
     },
     beforeSend: function (xhr) {
-      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+      xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
     },
     success: function (response) {
       alert("Movie added to watchlist!");
@@ -43,13 +40,10 @@ function addMovieToWatchlist(movieId) {
 }
 
 function deleteMovieFromWatchlist(decodedUserId, movieId) {
- 
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var decodedUserId = decodedToken.id;
-
 
   $.ajax({
     url: "rest/watchlist/" + decodedUserId + "/" + movieId,
@@ -59,7 +53,7 @@ function deleteMovieFromWatchlist(decodedUserId, movieId) {
       movie_id: movieId,
     },
     beforeSend: function (xhr) {
-      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+      xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
     },
     success: function (response) {
       alert("Movie removed from watchlist!");
@@ -72,23 +66,20 @@ function deleteMovieFromWatchlist(decodedUserId, movieId) {
 }
 
 function addMovieToFavorite(movieId) {
- 
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
-
 
   $.ajax({
     url: "rest/favorite",
     method: "POST",
     data: {
-     // user_id: userId,
+      // user_id: userId,
       movie_id: movieId,
     },
     beforeSend: function (xhr) {
-      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+      xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
     },
     success: function (response) {
       alert("Movie added to favorites!");
@@ -100,23 +91,20 @@ function addMovieToFavorite(movieId) {
 }
 
 function deleteMovieFromFavorite(dUserId, movieId) {
- 
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var dUserId = decodedToken.id;
-
 
   $.ajax({
     url: "rest/movie/favorite/" + dUserId + "/" + movieId,
     method: "DELETE",
     data: {
-     // user_id: dUserId,
+      // user_id: dUserId,
       movie_id: movieId,
     },
     beforeSend: function (xhr) {
-      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+      xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
     },
     success: function (response) {
       alert("Movie removed from favorites!");
@@ -129,22 +117,19 @@ function deleteMovieFromFavorite(dUserId, movieId) {
 }
 
 function addDirectorToFavorite(directorId) {
- 
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
-
 
   $.ajax({
     url: "rest/favorite",
     method: "POST",
     beforeSend: function (xhr) {
-      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+      xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
     },
     data: {
-    //  user_id: userId,
+      //  user_id: userId,
       director_id: directorId,
     },
     success: function (response) {
@@ -157,23 +142,20 @@ function addDirectorToFavorite(directorId) {
 }
 
 function deleteDirectorFromFavorite(deUserId, directorId) {
- 
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var deUserId = decodedToken.id;
-
 
   $.ajax({
     url: "rest/director/favorite/" + deUserId + "/" + directorId,
     method: "DELETE",
     data: {
-    //  user_id: deUserId,
+      //  user_id: deUserId,
       director_id: directorId,
     },
     beforeSend: function (xhr) {
-      xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
+      xhr.setRequestHeader("Authorization", localStorage.getItem("token"));
     },
     success: function (response) {
       alert("Director removed from favorites!");
@@ -185,9 +167,7 @@ function deleteDirectorFromFavorite(deUserId, directorId) {
   });
 }
 
-
 $(document).ready(function () {
-
   $("#movie-cards-container").on("click", ".add-watchlist", function () {
     var movieId = $(this).closest(".card").find("a").data("id");
     addMovieToWatchlist(movieId);
@@ -234,11 +214,7 @@ $(document).ready(function () {
 
         movieCardContainer.append(cardHtml);
       });
-      $(document).on(
-        "click",
-        "#single-movie-page-link",
-        handleMovieLinkClick
-      );
+      $(document).on("click", "#single-movie-page-link", handleMovieLinkClick);
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -247,12 +223,11 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
   $("#director-cards-container").on("click", ".add-favorites", function () {
     var directorId = $(this).closest(".card").find("a").data("id");
     addDirectorToFavorite(directorId);
   });
-  
+
   $.ajax({
     url: "rest/director",
     method: "GET",
@@ -298,7 +273,6 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
   $("#movie-grid-cards-container").on("click", ".add-watchlist", function () {
     var movieId = $(this).closest(".card").find("a").data("id");
     addMovieToWatchlist(movieId);
@@ -347,11 +321,7 @@ $(document).ready(function () {
 
         movieGridCardContainer.append(cardHtml);
       });
-      $(document).on(
-        "click",
-        "#single-movie-page-link",
-        handleMovieLinkClick
-      );
+      $(document).on("click", "#single-movie-page-link", handleMovieLinkClick);
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -360,11 +330,14 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
-  $("#director-grid-cards-container").on("click", ".add-favorites", function () {
-    var directorId = $(this).closest(".card").find("a").data("id");
-    addDirectorToFavorite(directorId);
-  });
+  $("#director-grid-cards-container").on(
+    "click",
+    ".add-favorites",
+    function () {
+      var directorId = $(this).closest(".card").find("a").data("id");
+      addDirectorToFavorite(directorId);
+    }
+  );
 
   $.ajax({
     url: "rest/director",
@@ -412,20 +385,21 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
 
-  $("#movie-grid-large-cards-container").on("click", ".add-watchlist", function () {
-    var movieId = $(this).closest(".large-card").find("a").data("id");
-    
-    deleteMovieFromWatchlist(userId, movieId);
-  });
+  $("#movie-grid-large-cards-container").on(
+    "click",
+    ".add-watchlist",
+    function () {
+      var movieId = $(this).closest(".large-card").find("a").data("id");
 
-  
+      deleteMovieFromWatchlist(userId, movieId);
+    }
+  );
+
   $.ajax({
     url: "rest/full/watchlist/" + userId,
     method: "GET",
@@ -488,11 +462,7 @@ $(document).ready(function () {
 
         movieGridLargeCardContainer.append(cardHtml);
       });
-      $(document).on(
-        "click",
-        "#single-movie-page-link",
-        handleMovieLinkClick
-      );
+      $(document).on("click", "#single-movie-page-link", handleMovieLinkClick);
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -503,16 +473,17 @@ $(document).ready(function () {
 $(document).ready(function () {
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
 
-
-  $("#movie-grid-large-cards-container-fav").on("click", ".add-favorites", function () {
-    var movieId = $(this).closest(".large-card").find("a").data("id");
-    deleteMovieFromFavorite(userId, movieId);
-  });
-
+  $("#movie-grid-large-cards-container-fav").on(
+    "click",
+    ".add-favorites",
+    function () {
+      var movieId = $(this).closest(".large-card").find("a").data("id");
+      deleteMovieFromFavorite(userId, movieId);
+    }
+  );
 
   $.ajax({
     url: "rest/full/movie/favorite/" + userId,
@@ -578,11 +549,7 @@ $(document).ready(function () {
 
         movieGridLargeCardContainerFav.append(cardHtml);
       });
-      $(document).on(
-        "click",
-        "#single-movie-page-link",
-        handleMovieLinkClick
-      );
+      $(document).on("click", "#single-movie-page-link", handleMovieLinkClick);
     },
     error: function (error) {
       console.log("Error fetching movie data:", error);
@@ -591,18 +558,19 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-
   var token = localStorage.getItem("token");
 
-  
   var decodedToken = decodeJwtToken(token);
   var userId = decodedToken.id;
 
-
-  $("#director-grid-large-cards-container-fav").on("click", ".add-favorites", function () {
-    var directorId = $(this).closest(".large-card").find("a").data("id");
-    deleteDirectorFromFavorite(userId, directorId);
-  });
+  $("#director-grid-large-cards-container-fav").on(
+    "click",
+    ".add-favorites",
+    function () {
+      var directorId = $(this).closest(".large-card").find("a").data("id");
+      deleteDirectorFromFavorite(userId, directorId);
+    }
+  );
   $.ajax({
     url: "rest/full/director/favorite/" + userId,
     method: "GET",
@@ -666,7 +634,6 @@ $(document).ready(function () {
 });
 
 function loadSingleDirectorPage(directorId) {
-  
   $.ajax({
     url: "rest/director",
     method: "GET",
@@ -729,7 +696,6 @@ function loadSingleDirectorPage(directorId) {
         $(".add-favorites").on("click", function () {
           addDirectorToFavorite(directorId);
         });
-
       } else {
         console.log("Director not found");
       }
@@ -746,48 +712,46 @@ function handleDirectorLinkClick(e) {
   loadSingleDirectorPage(directorId);
 }
 
+function loadSingleMoviePage(movieId) {
+  $.ajax({
+    url: "rest/full/movie",
+    method: "GET",
+    success: function (response) {
+      console.log(response);
 
-  function loadSingleMoviePage(movieId) {
-    $.ajax({
-      url: 'rest/full/movie',
-      method: 'GET',
-      success: function(response) {
-        console.log(response); 
-  
-        var singleMoviePageData = $('#single-movie-page-data');
-        var movie = response.find(function(movie) {
-          return movie.id === movieId;
-        });
-  
-        if (movie) {
-          var id = movie.id;
-          var title = movie.title;
-          var year = movie.year;
-          var length = movie.length;
-          var genre = movie.genre;
-          var rating = movie.rating;
-          var director = movie.director;
-          var writer = movie.writer;
-          var actor = movie.actor;
-          var description = movie.description;
-          var image = movie.image;
-          var trailer = movie.trailer;
-  
-          console.log("id:", id);
-          console.log("title:", title);
-          console.log("year:", year);
-          console.log("length:", length);
-          console.log("genre:", genre);
-          console.log("rating:", rating);
-          console.log("director:", director);
-          console.log("writer:", writer);
-          console.log("actor:", actor);
-          console.log("description:", description);
-          console.log("image:", image);
-          console.log("trailer:", trailer);
-          
+      var singleMoviePageData = $("#single-movie-page-data");
+      var movie = response.find(function (movie) {
+        return movie.id === movieId;
+      });
 
-          var cardHtml = `
+      if (movie) {
+        var id = movie.id;
+        var title = movie.title;
+        var year = movie.year;
+        var length = movie.length;
+        var genre = movie.genre;
+        var rating = movie.rating;
+        var director = movie.director;
+        var writer = movie.writer;
+        var actor = movie.actor;
+        var description = movie.description;
+        var image = movie.image;
+        var trailer = movie.trailer;
+
+        console.log("id:", id);
+        console.log("title:", title);
+        console.log("year:", year);
+        console.log("length:", length);
+        console.log("genre:", genre);
+        console.log("rating:", rating);
+        console.log("director:", director);
+        console.log("writer:", writer);
+        console.log("actor:", actor);
+        console.log("description:", description);
+        console.log("image:", image);
+        console.log("trailer:", trailer);
+
+        var cardHtml = `
           <div class="top-info">
           <p>${year}</p>
           <p>${length}</p>
@@ -854,34 +818,33 @@ function handleDirectorLinkClick(e) {
           </div>
         </div>
           `;
-  
-          singleMoviePageData.html(cardHtml);
 
-          $(".add-favorites").on("click", function () {
-            addMovieToFavorite(movieId);
-          });
-          $(".add-watchlist").on("click", function () {
-            addMovieToWatchlist(movieId);
-          });
-          $(".favorite-mobile").on("click", function () {
-            addMovieToFavorite(movieId);
-          });
-          $(".watchlist-mobile").on("click", function () {
-            addMovieToWatchlist(movieId);
-          });
-        } else {
-          console.log('Movie not found');
-        }
-      },
-      error: function(error) {
-        console.log('Error fetching movie data:', error);
+        singleMoviePageData.html(cardHtml);
+
+        $(".add-favorites").on("click", function () {
+          addMovieToFavorite(movieId);
+        });
+        $(".add-watchlist").on("click", function () {
+          addMovieToWatchlist(movieId);
+        });
+        $(".favorite-mobile").on("click", function () {
+          addMovieToFavorite(movieId);
+        });
+        $(".watchlist-mobile").on("click", function () {
+          addMovieToWatchlist(movieId);
+        });
+      } else {
+        console.log("Movie not found");
       }
-    });
-  }
+    },
+    error: function (error) {
+      console.log("Error fetching movie data:", error);
+    },
+  });
+}
 
-  function handleMovieLinkClick(e) {
-    e.preventDefault();
-    var movieId = $(this).data('id');
-    loadSingleMoviePage(movieId);
-  }
-  
+function handleMovieLinkClick(e) {
+  e.preventDefault();
+  var movieId = $(this).data("id");
+  loadSingleMoviePage(movieId);
+}
