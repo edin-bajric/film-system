@@ -148,6 +148,14 @@ nav {
   color: white;
 }
 
+#welcome-user {
+  cursor: default;
+}
+
+#welcome-user:hover {
+  color: #1e1e1e;
+}
+
 .mobile-menu {
   position: fixed;
   top: 0;
