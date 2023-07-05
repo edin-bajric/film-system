@@ -5,14 +5,13 @@ use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
 Flight::route('/*', function(){
-    
-  //perform JWT decode
 $path = Flight::request()->url;
-  if ($path != '/watchlist' && $path != '/favorite' && !str_starts_with($path, '/movie/favorite/')) return TRUE;
+  if (!str_starts_with($path, '/watchlist') 
+      && $path != '/favorite' 
+      && !str_starts_with($path, '/movie/favorite/') 
+      && !str_starts_with($path, '/director/favorite/')) 
+      return TRUE;
   
- 
-  // || // exclude routes from middleware
-  // str_starts_with($path, '/summonersMobileAPI/') || str_starts_with($path, '/summoners/')
   $headers = getallheaders();
   
   if (@!$headers['Authorization']){

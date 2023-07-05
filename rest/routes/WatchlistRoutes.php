@@ -139,6 +139,11 @@ Flight::route('GET /full/watchlist/@user_id', function($user_id) {
  */
 
 Flight::route('DELETE /watchlist/@user_id/@movie_id', function($user_id, $movie_id){
+    $decoded = Flight::get('user')["id"];
+    if ($user_id != $decoded) {
+        Flight::json(["message" => "Action not possible"], 400);
+        die;
+    }
     Flight::watchlistService()->delete_movie_from_watchlist($user_id, $movie_id);
     Flight::json(["message" => "Watchlist deleted successfully"]);
 });

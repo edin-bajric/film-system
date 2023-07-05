@@ -55,7 +55,7 @@ function deleteMovieFromWatchlist(decodedUserId, movieId) {
     url: "rest/watchlist/" + decodedUserId + "/" + movieId,
     method: "DELETE",
     data: {
-      user_id: decodedUserId,
+      //user_id: decodedUserId,
       movie_id: movieId,
     },
     beforeSend: function (xhr) {
@@ -144,7 +144,7 @@ function addDirectorToFavorite(directorId) {
       xhr.setRequestHeader('Authorization', localStorage.getItem('token'));
     },
     data: {
-      user_id: userId,
+    //  user_id: userId,
       director_id: directorId,
     },
     success: function (response) {
@@ -169,7 +169,7 @@ function deleteDirectorFromFavorite(deUserId, directorId) {
     url: "rest/director/favorite/" + deUserId + "/" + directorId,
     method: "DELETE",
     data: {
-      user_id: deUserId,
+    //  user_id: deUserId,
       director_id: directorId,
     },
     beforeSend: function (xhr) {

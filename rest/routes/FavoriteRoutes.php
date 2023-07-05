@@ -171,7 +171,7 @@ Flight::route('GET /full/director/favorite/@user_id', function($user_id) {
 Flight::route('DELETE /movie/favorite/@user_id/@movie_id', function($user_id, $movie_id){
     $decoded = Flight::get('user')["id"];
     if ($user_id != $decoded) {
-        Flight::json(["message" => "Ne moze!"], 400);
+        Flight::json(["message" => "Action not possible"], 400);
         die;
     }
     Flight::favoriteService()->delete_movie_from_favorites($user_id, $movie_id);
@@ -216,6 +216,11 @@ Flight::route('DELETE /movie/favorite/@user_id/@movie_id', function($user_id, $m
  */
 
 Flight::route('DELETE /director/favorite/@user_id/@director_id', function($user_id, $director_id){
+    $decoded = Flight::get('user')["id"];
+    if ($user_id != $decoded) {
+        Flight::json(["message" => "Action not possible"], 400);
+        die;
+    }
     Flight::favoriteService()->delete_director_from_favorites($user_id, $director_id);
     Flight::json(["message" => "Favorite deleted successfully"]);
 });
