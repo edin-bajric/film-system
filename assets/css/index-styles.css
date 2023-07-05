@@ -1,318 +1,317 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-  body {
-    background-color: #1e1e1e;
+body {
+  background-color: #1e1e1e;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  background-color: #77c3ec;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.logo {
+  width: 180px;
+  height: 86px;
+  cursor: pointer;
+}
+
+.search {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  background: white;
+  display: flex;
+  align-items: center;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.search:hover {
+  background-color: #dcdcdc;
+}
+
+.search input {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 16px;
+  background: transparent;
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 10px;
+  color: #1e1e1e;
+}
+
+.search input::placeholder {
+  font-family: "Oswald";
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.search button {
+  border: none;
+  background: transparent;
+  height: 24px;
+}
+
+.material-symbols-outlined {
+  color: #1e1e1e;
+  cursor: pointer;
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+}
+
+.hamburger {
+  display: none;
+  position: relative;
+
+  z-index: 1;
+  user-select: none;
+
+  appearance: none;
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.hamburger span {
+  display: block;
+  width: 32px;
+  height: 4px;
+  margin-bottom: 5px;
+  position: relative;
+
+  background-color: #1e1e1e;
+  border-radius: 6px;
+  z-index: 1;
+
+  transform-origin: 0 0;
+
+  transition: 0.3s;
+}
+
+.hamburger.is-active span:nth-child(1) {
+  transform: translate(0px, -2px) rotate(45deg);
+}
+
+.hamburger.is-active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(15px);
+}
+
+.hamburger.is-active span:nth-child(3) {
+  transform: translate(-3px, 3px) rotate(-45deg);
+}
+
+.hamburger.is-active:hover span {
+  background-color: #1e1e1e;
+}
+
+.menu {
+  display: flex;
+  flex: 1 1 0%;
+  justify-content: flex-end;
+  margin: 0 -16px;
+}
+
+.menu a {
+  font-family: Oswald;
+  font-weight: 600;
+  font-size: 20px;
+  color: #1e1e1e;
+  margin: 0 16px;
+  text-decoration: none;
+  transition: 0.3s;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.menu a.is-active,
+.menu a:hover {
+  color: white;
+}
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 98;
+
+  padding-top: 6rem;
+  opacity: 0;
+  transform: translateY(-100%);
+  background-color: #77c3ec;
+  color: black;
+  transition: 0.3s;
+}
+
+.mobile-menu.is-open {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mobile-menu a {
+  display: block;
+  padding: 1rem;
+  color: #1e1e1e;
+  text-align: center;
+  text-decoration: none;
+  font-family: Oswald;
+  font-weight: 600;
+  font-size: 32px;
+  transition: 0.3s;
+}
+
+.mobile-menu a:hover {
+  color: white;
+  background-color: #1e1e1e;
+}
+
+.mobile-search {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  background: white;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+.mobile-search input {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 16px;
+  background: transparent;
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 10px 10px;
+  color: #1e1e1e;
+}
+
+.search input::placeholder {
+  font-family: "Oswald";
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.mobile-search button {
+  border: none;
+  background: transparent;
+  height: 24px;
+}
+
+.get-top {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  top: 32px;
+  padding: 32px;
+}
+
+.back-to-top {
+  padding: 32px;
+  position: absolute;
+  right: 0;
+}
+
+.back-to-top a {
+  font-family: "Oswald";
+  font-weight: 400;
+  font-size: 20px;
+  text-decoration: none;
+  color: white;
+  transition: all 0.3s ease 0s;
+}
+
+.back-to-top a:hover {
+  color: #dcdcdc;
+}
+
+.back-to-top:active {
+  color: #bdbdbd;
+}
+
+.footer-container {
+  max-width: 1280px;
+  height: 100px;
+  margin: 0 auto;
+  margin-top: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  padding-left: 32px;
+  padding-right: 32px;
+}
+
+.logo-text {
+  width: 248px;
+  height: 47px;
+  cursor: pointer;
+}
+
+.footer-logo {
+  width: 64px;
+  height: 63px;
+  cursor: pointer;
+}
+
+.icons img {
+  width: 32px;
+  height: 32px;
+  margin: 16px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+@media (max-width: 991px) {
+  .hamburger,
+  .mobile-menu {
+    display: block;
   }
-  
-  .container {
-    max-width: 1280px;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .menu,
+  .search {
+    display: none;
   }
   nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    background-color: #77c3ec;
-    padding-left: 32px;
-    padding-right: 32px;
+    padding-left: 0px;
   }
-  
-  .logo {
-    width: 180px;
-    height: 86px;
-    cursor: pointer;
-  }
-  
-  .search {
-    width: 300px;
-    height: 40px;
-    padding: 10px;
-    background: white;
-    display: flex;
-    align-items: center;
-    border-radius: 50px;
-    transition: 0.3s;
-  }
-  
-  .search:hover {
-    background-color: #dcdcdc;
-  }
-  
-  .search input {
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 16px;
-    background: transparent;
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 10px 10px;
-    color: #1e1e1e;
-  }
-  
-  .search input::placeholder {
-    font-family: "Oswald";
-    font-weight: 300;
-    font-size: 16px;
-  }
-  
-  .search button {
-    border: none;
-    background: transparent;
-    height: 24px;
-  }
-  
-  .material-symbols-outlined {
-    color: #1e1e1e;
-    cursor: pointer;
-    font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
-  }
-  
-  .hamburger {
-    display: none;
-    position: relative;
-  
-    z-index: 1;
-    user-select: none;
-  
-    appearance: none;
-    border: none;
-    outline: none;
-    background: none;
-    cursor: pointer;
-  }
-  
-  .hamburger span {
-    display: block;
-    width: 32px;
-    height: 4px;
-    margin-bottom: 5px;
-    position: relative;
-  
-    background-color: #1e1e1e;
-    border-radius: 6px;
-    z-index: 1;
-  
-    transform-origin: 0 0;
-  
-    transition: 0.3s;
-  }
-  
-  .hamburger.is-active span:nth-child(1) {
-    transform: translate(0px, -2px) rotate(45deg);
-  }
-  
-  .hamburger.is-active span:nth-child(2) {
-    opacity: 0;
-    transform: translateX(15px);
-  }
-  
-  .hamburger.is-active span:nth-child(3) {
-    transform: translate(-3px, 3px) rotate(-45deg);
-  }
-  
-  .hamburger.is-active:hover span {
-    background-color: #1e1e1e;
-  }
-  
-  .menu {
-    display: flex;
-    flex: 1 1 0%;
-    justify-content: flex-end;
-    margin: 0 -16px;
-  }
-  
-  .menu a {
-    font-family: Oswald;
-    font-weight: 600;
-    font-size: 20px;
-    color: #1e1e1e;
-    margin: 0 16px;
-    text-decoration: none;
-    transition: 0.3s;
-    padding: 8px 16px;
-    cursor: pointer;
-  }
-  
-  .menu a.is-active,
-  .menu a:hover {
-    color: white;
-  }
-  
-  .mobile-menu {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 98;
-  
-    padding-top: 6rem;
-    opacity: 0;
-    transform: translateY(-100%);
-    background-color: #77c3ec;
-    color: black;
-    transition: 0.3s;
-  }
-  
-  .mobile-menu.is-open {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .mobile-menu a {
-    display: block;
-    padding: 1rem;
-    color: #1e1e1e;
-    text-align: center;
-    text-decoration: none;
-    font-family: Oswald;
-    font-weight: 600;
-    font-size: 32px;
-    transition: 0.3s;
-  }
-  
-  .mobile-menu a:hover {
-    color: white;
-    background-color: #1e1e1e;
-  }
-  
-  .mobile-search {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 300px;
-    height: 40px;
-    padding: 10px;
-    background: white;
-    border-radius: 50px;
-    transition: 0.3s;
-  }
-  
-  .mobile-search input {
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 16px;
-    background: transparent;
-    flex: 1;
-    border: none;
-    outline: none;
-    padding: 10px 10px;
-    color: #1e1e1e;
-  }
-  
-  .search input::placeholder {
-    font-family: "Oswald";
-    font-weight: 300;
-    font-size: 16px;
-  }
-  
-  .mobile-search button {
-    border: none;
-    background: transparent;
-    height: 24px;
-  }
-
-  .get-top {
-    display: flex;
-    position: relative;
-    align-items: center;
-    justify-content: center;
-    top: 32px;
-    padding: 32px;
-  }
-
-  .back-to-top {
-    padding: 32px;
-    position: absolute;
-    right: 0;
-  }
-  
-  .back-to-top a {
-    font-family: "Oswald";
-    font-weight: 400;
-    font-size: 20px;
-    text-decoration: none;
-    color: white;
-    transition: all 0.3s ease 0s;
-  }
-  
-  .back-to-top a:hover {
-    color: #dcdcdc;
-  }
-  
-  .back-to-top:active {
-    color: #bdbdbd;
-  }
-
   .footer-container {
-    max-width: 1280px;
-    height: 100px;
-    margin: 0 auto;
-    margin-top: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    flex-direction: column;
   }
-  
-  footer {
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 99;
-    padding-left: 32px;
-    padding-right: 32px;
-  }
-  
-  .logo-text {
-    width: 248px;
-    height: 47px;
-    cursor: pointer;
-  }
-  
-  .footer-logo {
-    width: 64px;
-    height: 63px;
-    cursor: pointer;
-  }
-  
-  .icons img {
-    width: 32px;
-    height: 32px;
-    margin: 16px;
-    cursor: pointer;
-  }
-
-  .hidden {
-    display: none;
-  }
-  
-  @media (max-width: 991px) {
-    .hamburger,
-    .mobile-menu {
-      display: block;
-    }
-    .menu,
-    .search {
-      display: none;
-    }
-    nav {
-      padding-left: 0px;
-    }
-    .footer-container {
-      flex-direction: column;
-    }
-  }
-  
+}
