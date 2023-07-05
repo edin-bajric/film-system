@@ -11,7 +11,7 @@
  * )
  * @OA\OpenApi(
  *     @OA\Server(url="http://localhost/film-system/rest", description="Development Environment"),
- *     @OA\Server(url="", description="Production Environment")
+ *     @OA\Server(url="https://shark-app-hvcew.ondigitalocean.app/", description="Production Environment")
  * )
  * @OA\SecurityScheme(
  *     securityScheme="ApiKeyAuth",
