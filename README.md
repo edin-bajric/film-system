@@ -1,4 +1,4 @@
-# Url: https://silverscreensociety.systems/
+# url: silverscreensociety.systems
 # A Film System for Enthusiasts
 ## Browse movies
 ## Learn about movies
